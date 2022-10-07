@@ -1,0 +1,63 @@
+{
+    "client": [
+        {
+            "idClient": 1,
+            "name" : "Huber",
+            "phone" : "981957244",
+            "password" : "huub",
+            "email" : "ejemplo@gmail.com",
+            "coach" : "juan perez",
+            "gym": "Lima norte"
+        }
+    ],
+    "trainers": [
+        {
+            "idTrainer": 1,
+            "name" : "Juan",
+            "phone" : "981957244",
+            "password" : "huub",
+            "email" : "ejemplo@gmail.com",
+            "gym": "Lima norte"
+        }
+    ],
+    "routines":[
+        {
+            "idRoutine": 1,
+            "name" : "pesas",
+            "description" : "lorem ipsun",
+            "indication" : "consumir dos veces al dia",
+            "tips": "consumir en ayunas",
+            "calories" : 40,
+            "url": "youtube.com",
+            "idTrainer": 1
+        }
+    ],
+    "diets":[
+        {
+            "idDiet": 1,
+            "name": "pollo",
+            "meal": "almuerzo",
+            "hour": "12 PM",
+            "calories": 160,
+            "indication": "lorem ipsun",
+            "idTrainer": 1
+        }
+    ],
+    "assignedTraining":[
+        {
+            "idClient": 1, 
+            "idRoutine": 1,
+            "done": "true",
+            "duration" : 40
+        }
+    ],
+    "assignedDiets":[
+        {
+            "idClient": 1, 
+            "idDiet": 1,
+            "done": "true",
+            "day": "Jueves",
+            "date": "29/09/2022"
+        }
+    ]
+}

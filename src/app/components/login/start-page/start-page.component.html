@@ -1,0 +1,22 @@
+<div class="container">
+    <mat-card class="card">
+        <mat-card-title>¿Ya tienes una cuenta?</mat-card-title>
+        <mat-card-subtitle>Iniciar sesion</mat-card-subtitle>
+        <button routerLink="/client-sign-in" mat-button style="background-color: #feda00;">
+          Como cliente
+        </button>
+        <br>
+        <br>
+        <button routerLink="/client-sign-up" mat-button style="background-color: #000; color: #fff;" >Como coach</button>
+    </mat-card>
+    <mat-card class="card" *ngIf="true">
+        <mat-card-title>¿No tienes cuenta?</mat-card-title>
+        <mat-card-subtitle>Regístrate</mat-card-subtitle>
+        <button routerLink="/coach-sign-in" mat-button style="background-color: #feda00;">
+          Como cliente
+        </button>
+        <br>
+        <br>
+        <button routerLink="/coach-sign-up" mat-button style="background-color: #000; color: #fff;" >Como coach</button>
+    </mat-card>
+</div>

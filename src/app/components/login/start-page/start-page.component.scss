@@ -1,0 +1,18 @@
+
+.container{
+    margin-top: 7rem;
+    display: flex;
+}
+
+.card{
+    margin: 0 5% 0 5%;
+    width: 40%;
+    text-align: center;
+}
+
+button{
+    border-radius: 12px;
+}
+.card:hover{
+    background-color: khaki;
+}
