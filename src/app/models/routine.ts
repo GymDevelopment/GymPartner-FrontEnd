@@ -1,5 +1,5 @@
 export interface Routine {
-    idRoutine:   number;
+    id:   number;
     name:        string;
     description: string;
     indication:  string;

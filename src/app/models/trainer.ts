@@ -1,5 +1,5 @@
 export interface Trainer {
-    idTrainer: number;
+    id: number;
     name:      string;
     phone:     string;
     password:  string;

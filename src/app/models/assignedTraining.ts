@@ -1,5 +1,5 @@
 export interface AssignedTraining {
-    idClient: number;
+    id: number;
     idRoutine:  number;
     done:       string;
     duration:   number;

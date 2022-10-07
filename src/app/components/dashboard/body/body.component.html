@@ -1,1 +1,7 @@
-<p>body works!</p>
+<mat-toolbar class="tool-bar" [ngClass]="getBodyClass()">
+    <span>Cliente</span>
+</mat-toolbar>
+
+<div class="body" [ngClass]="getBodyClass()">
+  <router-outlet></router-outlet>
+</div>

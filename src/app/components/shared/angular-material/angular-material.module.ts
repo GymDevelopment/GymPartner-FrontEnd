@@ -7,6 +7,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [],
@@ -18,6 +20,8 @@ import {MatCardModule} from '@angular/material/card';
     MatButtonModule,
     MatIconModule,
     MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule,
   ], 
   exports:[
     MatFormFieldModule,
@@ -26,6 +30,8 @@ import {MatCardModule} from '@angular/material/card';
     MatButtonModule,
     MatIconModule,
     MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule,
   ]
 })
 export class AngularMaterialModule { }

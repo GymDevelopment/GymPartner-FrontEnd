@@ -1,5 +1,5 @@
 export interface AssignedDiet {
-    idClient: number;
+    id: number;
     idDiet:     number;
     done:       string;
     day:        string;

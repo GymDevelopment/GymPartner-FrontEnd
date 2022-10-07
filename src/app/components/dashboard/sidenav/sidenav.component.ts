@@ -1,10 +1,9 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import {transition, trigger , style, animate, keyframes} from '@angular/animations'
+import { Navbar } from '../../../models/navbar';
+import { NavbarService } from '../../../services/navbar.service';
+import { SideNavToggle } from '../../../models/sideNavToggle';
 
-interface SideNavToggle{
-  screenWidth : number;
-  collapsed: boolean;
-}
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
@@ -43,13 +42,13 @@ interface SideNavToggle{
 })
 export class SidenavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private navbarService: NavbarService) { }
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   
   collapsed = false;
   screenWidth = 0;
-  navData !: NavbarData[];
+  navbarData !: Navbar[];
   userType:string = 'client';
 
   @HostListener('window.resize', ['$event'])
@@ -74,8 +73,8 @@ export class SidenavComponent implements OnInit {
     this.screenWidth = window.innerWidth;
   }
   getSidenavData(){
-    this.sidenavService.getNavbarData().subscribe(
-      (data: NavbarData[]) =>{this.navData = data;
+    this.navbarService.getNavbar().subscribe(
+      (data: Navbar[]) =>{this.navbarData = data;
       }
     );
   }

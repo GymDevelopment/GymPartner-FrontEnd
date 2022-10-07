@@ -1,5 +1,5 @@
 export interface Diet {
-    idDiet:     number;
+    id:     number;
     name:       string;
     meal:       string;
     hour:       string;
