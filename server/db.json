@@ -1,7 +1,99 @@
 {
+    "navbar":[
+         {
+            "routeLink": "dashboard/home",
+            "icon": "fal fa-home",
+            "label": "Menú Principal",
+            "type": "client"
+          },
+          {
+            "routeLink": "dashboard/profile",
+            "icon": "fas fa-user",
+            "label": "Perfil",
+            "type": "client"
+          },
+          {
+            "routeLink": "dashboard/statistics",
+            "icon": "fal fa-chart-bar",
+            "label": "Estadisticas",
+            "type": "client"
+          },
+          {
+            "routeLink": "dashboard/training-routine",
+            "icon": "fas fa-dumbbell",
+            "label": "Entrenamientos",
+            "type": "client"
+          },
+          {
+            "routeLink": "dashboard/meal-plans",
+            "icon": "fas fa-balance-scale-right",
+            "label": "Plan Alimentario",
+            "type": "client"
+          },
+          {
+            "routeLink": "dashboard/coach/home",
+            "icon": "fal fa-home",
+            "label": "Menú Principal",
+            "type": "coach"
+          },
+          {
+            "routeLink": "dashboard/coach/profile",
+            "icon": "fas fa-user",
+            "label": "Perfil",
+            "type": "coach"
+          },
+          {
+            "routeLink": "dashboard/coach/training-routine",
+            "icon": "fas fa-dumbbell",
+            "label": "Entrenamientos",
+            "type": "coach"
+          },
+          {
+            "routeLink": "dashboard/coach/meal-plans",
+            "icon": "fas fa-balance-scale-right",
+            "label": "Plan Alimentario",
+            "type": "coach"
+          },
+          {
+            "routeLink": "dashboard/coach/clients",
+            "icon": "fal fa-chart-bar",
+            "label": "Clientes",
+            "type": "coach"
+          }
+    ],
+    "homeCards": [
+        {
+          "title": "Perfil",
+          "routeLink": "dashboard/profile",
+          "description": "xxxxxx",
+          "type": "coach",
+          "image": "https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+        },
+        {
+          "title": "Estadisticas",
+          "routeLink": "dashboard/statistics",
+          "description": "Edita, actuliza, mejora tu perfil",
+          "type": "coach",
+          "image": "https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+        },
+        {
+          "title": "Entrenamientos",
+          "routeLink": "dashboard/training-routine",
+          "description": "Edita, actuliza, mejora tu perfil",
+          "type": "coach",
+          "image": "https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+        },
+        {
+          "title": "Plan Alimentario",
+          "routeLink": "dashboard/meal-plans",
+          "description": "Edita, actuliza, mejora tu perfil",
+          "type": "coach",
+          "image": "https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+        }
+      ],
     "client": [
         {
-            "idClient": 1,
+            "id": 1,
             "name" : "Huber",
             "phone" : "981957244",
             "password" : "huub",
@@ -12,7 +104,7 @@
     ],
     "trainers": [
         {
-            "idTrainer": 1,
+            "id": 1,
             "name" : "Juan",
             "phone" : "981957244",
             "password" : "huub",
@@ -22,7 +114,7 @@
     ],
     "routines":[
         {
-            "idRoutine": 1,
+            "id": 1,
             "name" : "pesas",
             "description" : "lorem ipsun",
             "indication" : "consumir dos veces al dia",
@@ -34,7 +126,7 @@
     ],
     "diets":[
         {
-            "idDiet": 1,
+            "id": 1,
             "name": "pollo",
             "meal": "almuerzo",
             "hour": "12 PM",
@@ -45,7 +137,7 @@
     ],
     "assignedTraining":[
         {
-            "idClient": 1, 
+            "id": 1, 
             "idRoutine": 1,
             "done": "true",
             "duration" : 40
@@ -53,7 +145,7 @@
     ],
     "assignedDiets":[
         {
-            "idClient": 1, 
+            "id": 1, 
             "idDiet": 1,
             "done": "true",
             "day": "Jueves",

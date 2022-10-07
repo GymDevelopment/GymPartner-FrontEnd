@@ -6,4 +6,6 @@ export const environment = {
   dietsPath: 'http://localhost:3000/diets',
   assignedTrainingPath: 'http://localhost:3000/assignedTraining',
   assignedDietsPath: 'http://localhost:3000/assignedDiets',
+  homeCardPath: 'http://localhost:3000/homeCards',
+  navbarPath: 'http://localhost:3000/navbar',
 };
