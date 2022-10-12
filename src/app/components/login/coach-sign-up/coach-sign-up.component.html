@@ -1,0 +1,59 @@
+<img
+  src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+  alt="front"
+  style="height: 200px; width: 100%"
+/>
+<div class="container">
+  <h1><strong>Registro de coach</strong></h1>
+
+<form [formGroup]="myForm" class="example-form">
+    <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Nombres</mat-label>
+              <input formControlName="name" matInput  />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Apellidos</mat-label>
+              <input formControlName="lastName" matInput />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Gimnacio</mat-label>
+              <input formControlName="gym" matInput />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Contraseña</mat-label>
+              <input formControlName="password" matInput />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Correo electronico</mat-label>
+              <input formControlName="email" matInput />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <button
+    routerLink="/dashboard/home"
+    mat-button
+    style="background-color: #feda00"
+    type="button"
+    [disabled]="myForm.invalid"
+    >
+    Iniciar secion
+  </button>
+</form>
+
+</div>

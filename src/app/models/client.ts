@@ -1,9 +1,15 @@
 export interface Client {
     id: number;
-    name:       string;
-    phone:      string;
-    password:   string;
-    email:      string;
-    coach:      string;
-    gym:        string;
-}
+    name: string;
+    lastName: string;
+    gym: string;
+    password: string;
+    email: string;
+    personalGoal: string;
+    physicalState: string;
+    BirthDate: string;
+    tall: number;
+    weight: number;
+    coach: string;
+    phone: string;
+  }

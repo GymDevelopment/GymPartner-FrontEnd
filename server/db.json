@@ -1,61 +1,61 @@
 {
     "navbar":[
          {
-            "routeLink": "dashboard/home",
+            "routeLink": "home",
             "icon": "fal fa-home",
             "label": "Menú Principal",
             "type": "client"
           },
           {
-            "routeLink": "dashboard/profile",
+            "routeLink": "client-profile",
             "icon": "fas fa-user",
             "label": "Perfil",
             "type": "client"
           },
           {
-            "routeLink": "dashboard/statistics",
+            "routeLink": "client-statistics",
             "icon": "fal fa-chart-bar",
             "label": "Estadisticas",
             "type": "client"
           },
           {
-            "routeLink": "dashboard/training-routine",
+            "routeLink": "client-training-routine",
             "icon": "fas fa-dumbbell",
             "label": "Entrenamientos",
             "type": "client"
           },
           {
-            "routeLink": "dashboard/meal-plans",
+            "routeLink": "client-meal-plans",
             "icon": "fas fa-balance-scale-right",
             "label": "Plan Alimentario",
             "type": "client"
           },
           {
-            "routeLink": "dashboard/coach/home",
+            "routeLink": "home",
             "icon": "fal fa-home",
             "label": "Menú Principal",
             "type": "coach"
           },
           {
-            "routeLink": "dashboard/coach/profile",
+            "routeLink": "coach-profile",
             "icon": "fas fa-user",
             "label": "Perfil",
             "type": "coach"
           },
           {
-            "routeLink": "dashboard/coach/training-routine",
+            "routeLink": "coach-training-routine",
             "icon": "fas fa-dumbbell",
             "label": "Entrenamientos",
             "type": "coach"
           },
           {
-            "routeLink": "dashboard/coach/meal-plans",
+            "routeLink": "coach-meal-plans",
             "icon": "fas fa-balance-scale-right",
             "label": "Plan Alimentario",
             "type": "coach"
           },
           {
-            "routeLink": "dashboard/coach/clients",
+            "routeLink": "coach-clients",
             "icon": "fal fa-chart-bar",
             "label": "Clientes",
             "type": "coach"
@@ -91,25 +91,32 @@
           "image": "https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
         }
       ],
-    "client": [
+    "clients": [
         {
             "id": 1,
             "name" : "Huber",
-            "phone" : "981957244",
+            "lastName" : "Calziaya",
+            "gym": "Lima norte",
             "password" : "huub",
             "email" : "ejemplo@gmail.com",
+            "personalGoal" : "Estar flaco",
+            "physicalState" : "Estar flaco",
+            "BirthDate" : "01/15/2003",
+            "tall": 190,
+            "weight": 75,
             "coach" : "juan perez",
-            "gym": "Lima norte"
+            "phone" : "981957244"
         }
     ],
-    "trainers": [
+    "coaches": [
         {
             "id": 1,
             "name" : "Juan",
-            "phone" : "981957244",
-            "password" : "huub",
+            "lastName" : "Calziaya",
+            "password" : "huubs",
+            "gym": "Lima norte",
             "email" : "ejemplo@gmail.com",
-            "gym": "Lima norte"
+            "phone" : "981957244"
         }
     ],
     "routines":[

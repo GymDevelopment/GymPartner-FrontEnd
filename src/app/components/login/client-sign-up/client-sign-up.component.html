@@ -1,72 +1,123 @@
-<br />
-<br />
-<br />
+<img
+  src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+  alt="front"
+  style="height: 200px; width: 100%"
+/>
 <div class="container">
-  <h1><strong>Registr de cliente</strong></h1>
-  <form class="example-form" >
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Company (disabled)</mat-label>
-      <input matInput  type="text" />  
-    </mat-form-field>
-
-    <table class="example-full-width" cellspacing="0">
+  <h1><strong>Registro de cliente</strong></h1>
+  <div style="text-align: right; margin-right: 5%;">
+    <button
+    (click)="nextForms()"
+  mat-button
+  style="background-color: #feda00;"
+  type="button"
+  >
+  {{label}}
+</button>
+  </div>
+  <br>
+  <form class="example-form" [formGroup]="myForm">
+    <table *ngIf="!next" class="example-full-width" cellspacing="0">
       <tr>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>First name</mat-label>
-            <input matInput />
+            <mat-label>Nombres</mat-label>
+            <input formControlName="name" matInput  />
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Long Last Name That Will Be Truncated</mat-label>
-            <input matInput />
+            <mat-label>Apellidos</mat-label>
+            <input formControlName="lastName" matInput />
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Gimnacio</mat-label>
+            <input formControlName="gym" matInput />
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input formControlName="password" matInput />
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Correo electronico</mat-label>
+            <input formControlName="email" matInput />
           </mat-form-field>
         </td>
       </tr>
     </table>
-
-    <p>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Address</mat-label>
-        <textarea matInput placeholder="Ex. 100 Main St">
-1600 Amphitheatre Pkwy</textarea
-        >
-      </mat-form-field>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Address 2</mat-label>
-        <textarea matInput></textarea>
-      </mat-form-field>
-    </p>
-
-    <table class="example-full-width" cellspacing="0">
-      <tr>
-        <td>
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>City</mat-label>
-            <input matInput placeholder="Ex. San Francisco" />
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>State</mat-label>
-            <input matInput placeholder="Ex. California" />
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Postal Code</mat-label>
-            <input
-              matInput
-              #postalCode
-              maxlength="5"
-              placeholder="Ex. 94105"
-              value="94043"
-            />
-            <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
-          </mat-form-field>
-        </td>
-      </tr>
-    </table>
+      <table *ngIf="next" class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Objetivo principal</mat-label>
+              <input formControlName="personalGoal" matInput />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Estado fisico</mat-label>
+              <input formControlName="physicalState" matInput />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Fecha de nacimiento</mat-label>
+              <input formControlName="BirthDate" matInput type="date" />
+            </mat-form-field>
+          </td>
+          <td style="width: 50%;">
+            <table style="width: 100%;">
+                <td style="width: 50%;">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Altura</mat-label>
+                    <input formControlName="tall" matInput  type="number"  />
+                  </mat-form-field>
+                </td>
+                <td style="width: 50%;">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Peso</mat-label>
+                    <input formControlName="weight" matInput  type="number" />
+                  </mat-form-field>
+                </td>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Elegir entrenador</mat-label>
+              <input formControlName="coach" matInput />
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Numero de celular</mat-label>
+              <input formControlName="phone" matInput type="number" />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    <button
+    *ngIf="next"
+    routerLink="/dashboard/home"
+    mat-button
+    style="background-color: #feda00"
+    type="button"
+    [disabled]="myForm.invalid"
+    >
+    Iniciar secion
+  </button>
   </form>
 </div>

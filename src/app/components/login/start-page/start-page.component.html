@@ -1,18 +1,21 @@
+<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="front" style="height: 200px; width: 100%;">
 <div class="container">
     <mat-card class="card">
         <mat-card-title>¿Ya tienes una cuenta?</mat-card-title>
         <mat-card-subtitle>Iniciar sesion</mat-card-subtitle>
-        <button routerLink="/client-sign-in" mat-button style="background-color: #feda00;">
+        <button routerLink="/sign-in/client" mat-button style="background-color: #feda00;">
           Como cliente
         </button>
         <br>
         <br>
-        <button routerLink="/client-sign-up" mat-button style="background-color: #000; color: #fff;" >Como coach</button>
+        <button routerLink="/sign-in/coach" mat-button style="background-color: #000; color: #fff;" >
+          Como coach
+        </button>
     </mat-card>
     <mat-card class="card" *ngIf="true">
         <mat-card-title>¿No tienes cuenta?</mat-card-title>
         <mat-card-subtitle>Regístrate</mat-card-subtitle>
-        <button routerLink="/coach-sign-in" mat-button style="background-color: #feda00;">
+        <button routerLink="/client-sign-up" mat-button style="background-color: #feda00;">
           Como cliente
         </button>
         <br>

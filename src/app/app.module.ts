@@ -4,11 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularMaterialModule } from './components/shared/angular-material/angular-material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ClientSignInComponent } from './components/login/client-sign-in/client-sign-in.component';
 import { ClientSignUpComponent } from './components/login/client-sign-up/client-sign-up.component';
-import { CoachSignInComponent } from './components/login/coach-sign-in/coach-sign-in.component';
 import { CoachSignUpComponent } from './components/login/coach-sign-up/coach-sign-up.component';
 import { StartPageComponent } from './components/login/start-page/start-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,13 +23,12 @@ import { CoachMealAddComponent } from './components/dashboard/coach-meal-add/coa
 import { CoachMealPlansComponent } from './components/dashboard/coach-meal-plans/coach-meal-plans.component';
 import { CoachTrainingRoutineComponent } from './components/dashboard/coach-training-routine/coach-training-routine.component';
 import { CoachProfileComponent } from './components/dashboard/coach-profile/coach-profile.component';
+import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientSignInComponent,
     ClientSignUpComponent,
-    CoachSignInComponent,
     CoachSignUpComponent,
     StartPageComponent,
     SignInComponent,
@@ -46,7 +43,8 @@ import { CoachProfileComponent } from './components/dashboard/coach-profile/coac
     CoachMealAddComponent,
     CoachMealPlansComponent,
     CoachTrainingRoutineComponent,
-    CoachProfileComponent
+    CoachProfileComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +52,8 @@ import { CoachProfileComponent } from './components/dashboard/coach-profile/coac
     AngularMaterialModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

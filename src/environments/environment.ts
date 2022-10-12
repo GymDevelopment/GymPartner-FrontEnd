@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  clientPath: 'http://localhost:3000/client',
-  trainersPath: 'http://localhost:3000/trainers',
+  clientPath: 'http://localhost:3000/clients',
+  coachesPath: 'http://localhost:3000/coaches',
   routinesPath: 'http://localhost:3000/routines',
   dietsPath: 'http://localhost:3000/diets',
   assignedTrainingPath: 'http://localhost:3000/assignedTraining',

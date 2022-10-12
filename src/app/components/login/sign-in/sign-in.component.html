@@ -1,59 +1,28 @@
-<!-- <div class="container">
-  <p>Correo Usuario</p>
-  <mat-form-field appearance="fill" style="width: 100%">
-    <mat-label>Ingrese su correo</mat-label>
-    <input
-      matInput
-      placeholder="huber@example.com"
-      [formControl]="email"
-      required
-    />
-    <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
-  </mat-form-field>
-  <br />
-  <p>Contraseña</p>
-  <mat-form-field appearance="fill" style="width: 100%">
-    <mat-label>Ingrese su contraseña</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'" />
-    <button
-      mat-icon-button
-      matSuffix
-      (click)="hide = !hide"
-      [attr.aria-label]="'Hide password'"
-      [attr.aria-pressed]="hide"
-    >
-      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-    </button>
-  </mat-form-field>
-  <button
-    routerLink="/coach-sign-in"
-    mat-button
-    style="background-color: #feda00"
-  >
-    Iniciar secion
-  </button>
-</div> -->
-
-
+<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="front" style="height: 200px; width: 100%;">
+<h1><strong>Inicio de secion {{title}}</strong></h1>
 
 <div class="container">
   <form [formGroup]="myForm" autocomplete="off">
-    <p>Correo Usuario</p>
+    <p>Correo {{title}}</p>
     <mat-form-field  appearance="fill" style="width: 100%">
       <mat-label>Ingrese su correo</mat-label>
-      <input matInput type="text"  formControlName="email"  placeholder="huber@example.com"  />
+      <input matInput type="text"  formControlName="email"/>
+      <mat-error *ngIf="myForm.get('email')?.hasError('required')">Este campo es requerido</mat-error>
+      <mat-error *ngIf="myForm.get('email')?.hasError('email')">Debe ingresar un email</mat-error>
     </mat-form-field>
     <br />
     <p>Contraseña</p>
     <mat-form-field appearance="fill" style="width: 100%">
       <mat-label>Ingrese su contraseña</mat-label>
-      <input matInput type="password" formControlName="password" placeholder="Contraseña"/>
+      <input matInput type="password" formControlName="password"/>
+      <mat-error *ngIf="myForm.get('password')?.hasError('required')">Debe ingresar una contraseña</mat-error>
     </mat-form-field>
     <button
-      routerLink="/coach-sign-in"
+      (click)="signIn()"
       mat-button
       style="background-color: #feda00"
       type="button"
+      [disabled]="myForm.invalid"
       >
       Iniciar secion
     </button>
