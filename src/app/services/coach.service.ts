@@ -13,15 +13,15 @@ export class CoachService {
     return this.http.get<Coach[]>(this.basePath);
   }
   getCoachId(id:any){
-    return this.http.get<Coach[]>(`${this.basePath}/${id}`);
+    return this.http.get<Coach>(`${this.basePath}/${id}`);
   }
   updateCoach(id:any, coach:any){
-    return this.http.put<Coach[]>(`${this.basePath}/${id}`, coach);
+    return this.http.put<Coach>(`${this.basePath}/${id}`, coach);
   }
   addCoach(coach:any){
-    return this.http.post<Coach[]>(this.basePath,coach);
+    return this.http.post<Coach>(this.basePath,coach);
   }
   deleteCoach(id:any){
-    return this.http.delete<Coach[]>(`${this.basePath}/${id}`)
+    return this.http.delete<Coach>(`${this.basePath}/${id}`)
   }
 }

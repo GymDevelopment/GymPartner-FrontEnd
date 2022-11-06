@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: '', redirectTo: "startPage", pathMatch: 'full'},
   {path: 'startPage', component: StartPageComponent},
   {path: 'dashboard', component: DashboardComponent, children: [
-    {path: 'home/:user', component: HomeComponent},
+    {path: 'home', component: HomeComponent},
     {path: 'coach-meal-plans', component: CoachMealPlansComponent},
     {path: 'coach-meal-add', component: CoachMealAddComponent},
     {path: 'coach-clients', component: CoachClientsComponent},

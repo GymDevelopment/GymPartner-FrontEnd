@@ -1,10 +1,10 @@
+import { Routine } from './routine';
 import { Client } from './client';
-import { Diet } from './diet';
-export class AssignedDiet {
+export class AssignedRoutine {
     id?: number;
-    diet?:     Diet;
+    routine?:  Routine;
     client?:     Client;
     done?:       boolean;
-    day?:        string;
+    duration?:   number;
     date?:       Date;
 }

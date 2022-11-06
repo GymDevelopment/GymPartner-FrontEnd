@@ -13,15 +13,15 @@ export class DietService {
     return this.http.get<Diet[]>(this.basePath);
   }
   getDietId(id:any){
-    return this.http.get<Diet[]>(`${this.basePath}/${id}`);
+    return this.http.get<Diet>(`${this.basePath}/${id}`);
   }
   addDiet(diet:any){
-    return this.http.post<Diet[]>(this.basePath, diet);
+    return this.http.post<Diet>(this.basePath, diet);
   }
   deleteDiet(id:any){
-      return this.http.delete<Diet[]>(`${this.basePath}/${id}`);
+      return this.http.delete<Diet>(`${this.basePath}/${id}`);
   }
   updateDiet(id:any, diet:any){
-    return this.http.put<Diet[]>(`${this.basePath}/${id}`, diet);
+    return this.http.put<Diet>(`${this.basePath}/${id}`, diet);
   }
 }

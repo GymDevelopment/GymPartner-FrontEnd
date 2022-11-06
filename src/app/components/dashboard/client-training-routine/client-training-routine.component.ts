@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Routine } from '../../../models/routine';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { RoutineService } from '../../../services/routine.service';
+import { AssignedRoutine } from '../../../models/assignedRoutine';
+import { AssignedRoutineService } from '../../../services/assigned-routine.service';
 
 @Component({
   selector: 'app-client-training-routine',
@@ -11,19 +11,20 @@ import { RoutineService } from '../../../services/routine.service';
 })
 export class ClientTrainingRoutineComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'actions'];
-  dataSource = new MatTableDataSource<Routine>();
+  displayedColumns: string[] = ['id', 'name', 'duration' ,'calories', 'actions'];
+  dataSource = new MatTableDataSource<AssignedRoutine>();
 
-  training!: Routine[];
+  futureTraining!: AssignedRoutine[];
 
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
 
-  constructor(private routineService : RoutineService) { }
+  constructor(private assignedRoutineService : AssignedRoutineService) { }
 
   ngOnInit(): void {
     this.getTrainingRoutineData();
+    this.getFutureTrainingRoutineData();
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -31,13 +32,18 @@ export class ClientTrainingRoutineComponent implements OnInit {
   }
 
   getTrainingRoutineData() {
-    this.routineService.getRoutine()
-    .subscribe((data: Routine[]) =>{
-      {
-        this.training = data;
+    this.assignedRoutineService.getTodayAssignedRoutineByClientId(2)
+    .subscribe((data: AssignedRoutine[]) =>{
+        console.log(data)
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.paginator = this.paginator;
-      }
+    });
+  }
+  getFutureTrainingRoutineData() {
+    this.assignedRoutineService.getFutureAssignedRoutineByClientId(2)
+    .subscribe((data: AssignedRoutine[]) =>{
+        console.log(data)
+        this.futureTraining = data;
     });
   }
 

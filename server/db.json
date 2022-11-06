@@ -101,7 +101,7 @@
             "email" : "ejemplo@gmail.com",
             "personalGoal" : "Estar flaco",
             "physicalState" : "Estar flaco",
-            "BirthDate" : "01/15/2003",
+            "birthDate" : "01/15/2003",
             "tall": 190,
             "weight": 75,
             "coach" : "juan perez",
@@ -146,14 +146,16 @@
         {
             "id": 1, 
             "idRoutine": 1,
+            "idClient": 1,
             "done": "true",
             "duration" : 40
         }
     ],
-    "assignedDiets":[
+    "assignedDiets":[ 
         {
             "id": 1, 
             "idDiet": 1,
+            "idClient": 1,
             "done": "true",
             "day": "Jueves",
             "date": "29/09/2022"

@@ -42,7 +42,7 @@ export class CoachMealAddComponent implements OnInit {
       hour:       this.myForm.get('name')!.value,
       calories:   this.myForm.get('name')!.value,
       indication: this.myForm.get('name')!.value,
-      idTrainer:  this.myForm.get('name')!.value,
+      coach:  this.myForm.get('name')!.value,
     };
     this.mealService.addDiet(meal).subscribe({
       next: (data: any) => {

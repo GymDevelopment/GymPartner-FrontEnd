@@ -13,15 +13,15 @@ export class RoutineService {
     return this.http.get<Routine[]>(this.basePath);
   }
   getRoutineId(id:any){
-    return this.http.get<Routine[]>(`${this.basePath}/${id}`);
+    return this.http.get<Routine>(`${this.basePath}/${id}`);
   }
   updateRoutine(id:any, trainer:any){
-    return this.http.put<Routine[]>(`${this.basePath}/${id}`, trainer);
+    return this.http.put<Routine>(`${this.basePath}/${id}`, trainer);
   }
   addRoutine(trainer:any){
-    return this.http.post<Routine[]>(this.basePath, trainer);
+    return this.http.post<Routine>(this.basePath, trainer);
   }
   deleteRoutine(id:any){
-    return this.http.delete<Routine[]>(`${this.basePath}/${id}`);
+    return this.http.delete<Routine>(`${this.basePath}/${id}`);
   }
 }

@@ -1,31 +1,49 @@
 <h1>
-    <strong>Mi perfil</strong>
-  </h1>
-  <mat-card class="profile-card">
-    <mat-card-title-group>
-      <mat-card-title>Hub CJ</mat-card-title>
-      <mat-card-subtitle>
-        aaaa@gmail.com
-        <br />
-        99999999999999
-      </mat-card-subtitle>
-      <img mat-card-md-image src="https://thispersondoesnotexist.com/image" />
-    </mat-card-title-group>
-    <mat-card-content> </mat-card-content>
-  </mat-card>
-  <h1>
-    <strong>Mi Entrenador</strong>
-  </h1>
-  <mat-card class="profile-card">
-    <mat-card-title-group>
-      <mat-card-title>Percy Pereyra</mat-card-title>
-      <mat-card-subtitle>
-        percy@gmail.com
-        <br />
-        987654321
-      </mat-card-subtitle>
-      <img mat-card-md-image src="https://thispersondoesnotexist.com/image" />
-    </mat-card-title-group>
-    <mat-card-content> </mat-card-content>
-  </mat-card>
-  
+  <strong>Mi perfil</strong>
+</h1>
+<mat-card class="profile-card">
+  <mat-card-title-group>
+    <mat-card-title>{{ selectedClient.name }}</mat-card-title>
+    <mat-card-subtitle>
+      {{ selectedClient.email }}
+      <br />
+      {{ selectedClient.phone }}
+    </mat-card-subtitle>
+    <img mat-card-md-image src="https://thispersondoesnotexist.com/image" />
+  </mat-card-title-group>
+  <mat-card-content> </mat-card-content>
+</mat-card>
+<div class="container">
+  <div style="width: 50%; margin-right: 10%;">
+    <h1>
+      <strong>Mi Entrenador</strong>
+    </h1>
+    <mat-card class="profile-card">
+      <mat-card-title-group>
+        <mat-card-title>{{ selectedClient.coach?.name }}</mat-card-title>
+        <mat-card-subtitle>
+          {{ selectedClient.coach?.email }}
+          <br />
+          {{ selectedClient.coach?.phone }}
+        </mat-card-subtitle>
+        <img mat-card-md-image src="https://thispersondoesnotexist.com/image" />
+      </mat-card-title-group>
+      <mat-card-content> </mat-card-content>
+    </mat-card>
+  </div>
+  <div style="width: 40%;">
+    <h1>
+      <strong>Mi gimnacio</strong>
+    </h1>
+    <mat-card class="profile-card">
+      <mat-card-title-group>
+        <mat-card-title>{{ selectedClient.gym?.name }}</mat-card-title>
+        <mat-card-subtitle>
+          {{ selectedClient.gym?.address }}
+        </mat-card-subtitle>
+        <img mat-card-md-image src="https://thispersondoesnotexist.com/image" />
+      </mat-card-title-group>
+      <mat-card-content> </mat-card-content>
+    </mat-card>
+  </div>
+</div>

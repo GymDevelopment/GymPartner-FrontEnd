@@ -13,15 +13,15 @@ export class AssignedDietService {
     return this.http.get<AssignedDiet[]>(this.basePath);
   }
   getAssignedDietId(id:any){
-    return this.http.get<AssignedDiet[]>(`${this.basePath}/${id}`);
+    return this.http.get<AssignedDiet>(`${this.basePath}/${id}`);
   }
   addAssignedDiet(assignedDiet:any){
-    return this.http.post<AssignedDiet[]>(this.basePath, assignedDiet);
+    return this.http.post<AssignedDiet>(this.basePath, assignedDiet);
   }
   deleteAssignedDiet(id:any){
-      return this.http.delete<AssignedDiet[]>(`${this.basePath}/${id}`);
+      return this.http.delete<AssignedDiet>(`${this.basePath}/${id}`);
   }
-  updateAssignedDiet(id:any, assignedDiet:AssignedDiet[]){
-    return this.http.put<AssignedDiet[]>(`${this.basePath}/${id}`, assignedDiet);
+  updateAssignedDiet(id:any, assignedDiet:AssignedDiet){
+    return this.http.put<AssignedDiet>(`${this.basePath}/${id}`, assignedDiet);
   }
 }

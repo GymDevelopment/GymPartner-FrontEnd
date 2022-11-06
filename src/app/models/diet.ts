@@ -1,9 +1,10 @@
-export interface Diet {
-    id:     number;
-    name:       string;
-    meal:       string;
-    hour:       string;
-    calories:   number;
-    indication: string;
-    idTrainer:  number;
+import { Coach } from './coach';
+export class Diet {
+    id?:     number;
+    name?:       string;
+    meal?:       string;
+    hour?:       number;
+    calories?:   number;
+    indication?: string;
+    coach?:  Coach;
 }

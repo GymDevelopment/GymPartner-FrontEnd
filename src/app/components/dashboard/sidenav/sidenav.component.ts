@@ -57,9 +57,11 @@ export class SidenavComponent implements OnInit {
 
   changeToClient(){
     this.userType = 'client';
+    this.getSidenavData();
   }
   changeToCoach(){
     this.userType = 'coach';
+    this.getSidenavData();
   }
 
   ngOnInit(): void {
@@ -69,7 +71,7 @@ export class SidenavComponent implements OnInit {
   }
   getSidenavData(){
     this.navbarService.getNavbar().subscribe(
-      (data: Navbar[]) =>{this.navbarData = data;
+      (data: Navbar[]) =>{this.navbarData = data.filter(x=>x.type == this.userType);
       }
     );
   }
