@@ -1,0 +1,91 @@
+<h1>Entrenamiento : {{routine.name}}</h1>
+
+<div class="information">
+    <iframe
+    width="50%"
+    height="315"
+    [src]="routine.url | safe"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+  
+<dir  class="information-card">
+    <mat-card>
+        <mat-card-title>Indicaciones</mat-card-title>
+        <mat-card-content>
+          <p>
+            {{routine.indication}}
+          </p>
+        </mat-card-content>
+      </mat-card>
+      
+      <mat-card>
+          <mat-card-title>Consejos</mat-card-title>
+          <mat-card-content>
+            <p>
+              {{routine.tips}}
+            </p>
+          </mat-card-content>
+        </mat-card>
+    <div class="row">
+        <mat-card class="column" style="margin-right: 4%;">
+            <mat-card-title>Clientes asignados</mat-card-title>
+            <mat-card-content>
+              <p *ngFor="let client of clients">
+                {{client.name}} {{client.lastName}} 
+              </p>
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="column">
+            <mat-card-title>Asignar a nuevos clientes</mat-card-title>
+            <br>
+            <form style="width: 80%; margin-left: 10%; " [formGroup]="myForm" autocomplete="off">
+                <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-select matInput formControlName="client" >
+                          <mat-option *ngFor="let client of myClients" [value]="client">{{client.name}} {{client.lastName}}</mat-option>
+                      </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Fecha de la rutina</mat-label>
+                    <input formControlName="date" matInput type="date" />
+                  </mat-form-field>
+                  <div
+                *ngIf="
+                  myForm.get('date')?.hasError('required') &&
+                  myForm.get('date')?.touched
+                "
+                style="margin-top: -20px"
+              >
+                <span class="mda-form-msg"> Este campo es necesario </span>
+              </div>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Duracion</mat-label>
+                <input formControlName="duration" matInput  type="number"  />
+              </mat-form-field>
+              <div
+      *ngIf="
+        myForm.get('duration')?.hasError('required') &&
+        myForm.get('duration')?.touched
+      "
+      style="margin-top: -20px"
+    >
+      <span class="mda-form-msg"> Es necesario la duracion </span>
+    </div>
+            </form>
+            
+            
+            <br>
+            <button [disabled]="myForm.invalid" (click)="addAssignedRoutine()" mat-raised-button style="background-color: yellow; width: 100%;">Asignar</button>
+          </mat-card>
+    </div>
+
+</dir>
+
+</div>
+
+<br>
+<h2>Calorias quemadas : {{routine.calories}}</h2>
+
+

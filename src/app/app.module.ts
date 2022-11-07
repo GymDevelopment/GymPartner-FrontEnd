@@ -27,6 +27,8 @@ import { DashboardComponent } from './components/dashboard/dashboard/dashboard.c
 import { ClientTrainingInformationComponent } from './components/dashboard/client-training-information/client-training-information.component';
 import { SafePipe } from './pipes/safe.pipe';
 import { CoachClientsDetailComponent } from './components/dashboard/coach-clients-detail/coach-clients-detail.component';
+import { CoachTrainingAddComponent } from './components/dashboard/coach-training-add/coach-training-add.component';
+import { CoachTrainingDetailComponent } from './components/dashboard/coach-training-detail/coach-training-detail.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { CoachClientsDetailComponent } from './components/dashboard/coach-client
     ClientTrainingInformationComponent,
     SafePipe,
     CoachClientsDetailComponent,
+    CoachTrainingAddComponent,
+    CoachTrainingDetailComponent,
   ],
   imports: [
     BrowserModule,

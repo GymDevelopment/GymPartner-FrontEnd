@@ -1,0 +1,18 @@
+.information{
+    display: flex;
+}
+
+.information-card{
+    flex: 50%;
+}
+
+.row{
+    display: flex;
+}
+.column{
+    flex: 48%;
+}
+
+mat-card{
+    margin-bottom: 20px;
+}

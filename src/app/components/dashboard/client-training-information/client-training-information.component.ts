@@ -11,8 +11,8 @@ import { Routine } from '../../../models/routine';
 })
 export class ClientTrainingInformationComponent implements OnInit {
   id !: Number;
-  assignedRoutine : AssignedRoutine = new AssignedRoutine();
   routine : Routine = new Routine();
+  assignedRoutine : AssignedRoutine = new AssignedRoutine();
   constructor(
     private activatedRoute: ActivatedRoute,
     private assignedRoutineService : AssignedRoutineService,
@@ -27,7 +27,6 @@ export class ClientTrainingInformationComponent implements OnInit {
     this.assignedRoutineService.getAssignedRoutineId(this.id).subscribe((data: AssignedRoutine) =>{
       this.assignedRoutine = data;
       this.routine = data.routine;
-      console.log(this.routine.url);
     })
   }
   endRoutine(){

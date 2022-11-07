@@ -1,1 +1,61 @@
-<p>coach-training-routine works!</p>
+<h1>
+  <strong>Mis entrenamientos creados</strong>
+</h1>
+<div class="container">
+  <mat-card
+    *ngFor="let routine of myRoutines"
+    class="example-card"
+    style="background-color: lightgreen"
+  >
+    <mat-card-header>
+      <mat-card-title
+        ><strong>{{ routine.name }}</strong></mat-card-title
+      >
+    </mat-card-header>
+    <mat-card-actions>
+      <button
+        routerLink="/dashboard/coach-training-detail/{{ routine.id }}"
+        mat-button
+      >
+        DETALLES
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<br />
+<br />
+<p style="font-size: 20px">Crea un nuevo entrenamiento</p>
+
+<button
+  routerLink="/dashboard/coach-training-add"
+  mat-button
+  style="background-color: #feda00; width: 25%; color: black"
+  type="button"
+>
+  Nuevo entrenamiento
+</button>
+
+<br />
+<br />
+
+<h1>
+  <strong>Mas entrenamientos</strong>
+</h1>
+
+<div class="container">
+  <mat-card *ngFor="let routine of routines" class="example-card">
+    <mat-card-header>
+      <mat-card-title
+        ><strong>{{ routine.name }}</strong></mat-card-title
+      >
+    </mat-card-header>
+    <mat-card-actions>
+      <button
+        routerLink="/dashboard/coach-training-detail/{{ routine.id }}"
+        mat-button
+      >
+        DETALLES
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

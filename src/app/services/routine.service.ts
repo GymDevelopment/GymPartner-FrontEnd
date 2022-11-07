@@ -7,19 +7,22 @@ import { Routine } from '../models/routine';
   providedIn: 'root'
 })
 export class RoutineService {
-  basePath:string = environment.routinesPath;
+  basePath:string = environment.apiPath;
   constructor(private http:HttpClient) { }
   getRoutine(){
-    return this.http.get<Routine[]>(this.basePath);
+    return this.http.get<Routine[]>(this.basePath + "/routines");
   }
   getRoutineId(id:any){
-    return this.http.get<Routine>(`${this.basePath}/${id}`);
+    return this.http.get<Routine>(`${this.basePath}/routines/${id}`);
+  }
+  getRoutinesByCoachId(id:any){
+    return this.http.get<Routine[]>(`${this.basePath}/coaches/${id}/routines`);
   }
   updateRoutine(id:any, trainer:any){
     return this.http.put<Routine>(`${this.basePath}/${id}`, trainer);
   }
   addRoutine(trainer:any){
-    return this.http.post<Routine>(this.basePath, trainer);
+    return this.http.post<Routine>(this.basePath + "/routines", trainer);
   }
   deleteRoutine(id:any){
     return this.http.delete<Routine>(`${this.basePath}/${id}`);

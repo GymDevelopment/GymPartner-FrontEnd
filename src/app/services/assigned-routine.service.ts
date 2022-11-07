@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 import { AssignedRoutine } from '../models/assignedRoutine';
 import { Routine } from '../models/routine';
+import { Client } from '../models/client';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,10 @@ export class AssignedRoutineService {
     return this.http.get<Routine[]>(`${this.basePath}/clients/${id}/routine`);
   }
 
+  getClientsByRoutineId(id:any){
+    return this.http.get<Client[]>(`${this.basePath}/routines/${id}/client`);
+  }
+
   getAssignedRoutineByClientId(id:any){
     return this.http.get<AssignedRoutine[]>(`${this.basePath}/clients/${id}/assignedRoutine`);
   }
@@ -31,7 +36,7 @@ export class AssignedRoutineService {
     return this.http.get<AssignedRoutine[]>(`${this.basePath}/clients/${id}/futureAssignedRoutines`);
   }
   addAssignedRoutine(assignedRoutine:any){
-    return this.http.post<AssignedRoutine>(this.basePath, assignedRoutine);
+    return this.http.post<AssignedRoutine>(this.basePath + "/assignedRoutines", assignedRoutine);
   }
   deleteAssignedRoutine(id:any){
       return this.http.delete<AssignedRoutine>(`${this.basePath}/${id}`);

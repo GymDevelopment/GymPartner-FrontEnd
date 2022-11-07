@@ -17,6 +17,8 @@ import { DashboardComponent } from './components/dashboard/dashboard/dashboard.c
 import { HomeComponent } from './components/dashboard/home/home.component';
 import { SignInComponent } from './components/login/sign-in/sign-in.component';
 import { ClientTrainingInformationComponent } from './components/dashboard/client-training-information/client-training-information.component';
+import { CoachTrainingAddComponent } from './components/dashboard/coach-training-add/coach-training-add.component';
+import { CoachTrainingDetailComponent } from './components/dashboard/coach-training-detail/coach-training-detail.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "startPage", pathMatch: 'full'},
@@ -28,6 +30,8 @@ const routes: Routes = [
     {path: 'coach-clients', component: CoachClientsComponent},
     {path: 'coach-clients-detail/:id', component: CoachClientsDetailComponent},
     {path: 'coach-training-routine', component: CoachTrainingRoutineComponent},
+    {path: 'coach-training-add', component: CoachTrainingAddComponent},
+    {path: 'coach-training-detail/:id', component: CoachTrainingDetailComponent},
     {path: 'coach-profile', component: CoachProfileComponent},
     {path: 'client-meal-plans', component: ClientMealPlansComponent},
     {path: 'client-training-routine', component: ClientTrainingRoutineComponent},
