@@ -1,11 +1,8 @@
-import { Routine } from './routine';
-import { Client } from './client';
-import { Coach } from './coach';
 export class AssignedRoutine {
     id?: number;
-    routine?:  Routine;
-    client?:     Client;
-    coach?:     Coach;
+    routine?:  any;
+    client?:     any;
+    coach?:     any;
     done?:       boolean;
     date?:       Date;
     duration?:   number;

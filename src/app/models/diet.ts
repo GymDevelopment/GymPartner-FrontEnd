@@ -1,4 +1,3 @@
-import { Coach } from './coach';
 export class Diet {
     id?:     number;
     name?:       string;
@@ -7,5 +6,5 @@ export class Diet {
     calories?:   number;
     hour?:       number;
     mealType?:   string;
-    coach?:  Coach;
+    coach?:  any;
 }

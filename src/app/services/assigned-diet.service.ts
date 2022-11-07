@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 import { AssignedDiet } from '../models/assignedDiet';
+import { Diet } from '../models/diet';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AssignedDietService {
-  basePath:string = environment.assignedDietsPath
+  basePath:string = environment.apiPath
   constructor(private http: HttpClient) { }
   getAssignedDiet(){
     return this.http.get<AssignedDiet[]>(this.basePath);
@@ -24,4 +25,15 @@ export class AssignedDietService {
   updateAssignedDiet(id:any, assignedDiet:AssignedDiet){
     return this.http.put<AssignedDiet>(`${this.basePath}/${id}`, assignedDiet);
   }
+
+  getBreakfastByClientId(id:any){
+    return this.http.get<Diet[]>(`${this.basePath}/clients/${id}/breakfast`);
+  }
+  getLunchByClientId(id:any){
+    return this.http.get<Diet[]>(`${this.basePath}/clients/${id}/lunch`);
+  }
+  getDinnerByClientId(id:any){
+    return this.http.get<Diet[]>(`${this.basePath}/clients/${id}/dinner`);
+  }
+
 }

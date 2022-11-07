@@ -1,1 +1,45 @@
-<p>coach-profile works!</p>
+<h1>
+    <strong>Mi perfil</strong>
+  </h1>
+  <mat-card class="profile-card">
+    <mat-card-title-group>
+      <mat-card-title>{{ selectedCoach.name }} {{selectedCoach.lastName}}</mat-card-title>
+      <mat-card-subtitle>
+        {{ selectedCoach.email }}
+        <br />
+        {{ selectedCoach.phone }}
+      </mat-card-subtitle>
+      <img mat-card-md-image src="https://thispersondoesnotexist.com/image" />
+    </mat-card-title-group>
+    <mat-card-content> </mat-card-content>
+  </mat-card>
+  <div class="container">
+    <div style="width: 50%; margin-right: 10%;">
+      <h1>
+        <strong>Mis clientes</strong>
+      </h1 >
+      <mat-card *ngFor="let client of clients" class="profile-card">
+        <mat-card-title-group >
+          <mat-card-title >{{ client.name }} {{ client.lastName }}</mat-card-title>
+          <img mat-card-md-image src="https://thispersondoesnotexist.com/image" />
+        </mat-card-title-group>
+        <mat-card-content> </mat-card-content>
+      </mat-card>
+    </div>
+    <div style="width: 40%;">
+      <h1>
+        <strong>Mi gimnacio</strong>
+      </h1>
+      <mat-card class="profile-card">
+        <mat-card-title-group>
+          <mat-card-title>{{ selectedCoach.gym?.name }}</mat-card-title>
+          <mat-card-subtitle>
+            {{ selectedCoach.gym?.address }}
+          </mat-card-subtitle>
+          <img mat-card-md-image src="https://thispersondoesnotexist.com/image" />
+        </mat-card-title-group>
+        <mat-card-content> </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  

@@ -23,7 +23,7 @@ export class ClientTrainingRoutineComponent implements OnInit {
   constructor(private assignedRoutineService : AssignedRoutineService) { }
 
   ngOnInit(): void {
-    this.getTrainingRoutineData();
+    this.getTodayTrainingRoutineData();
     this.getFutureTrainingRoutineData();
   }
   applyFilter(event: Event) {
@@ -31,7 +31,7 @@ export class ClientTrainingRoutineComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  getTrainingRoutineData() {
+  getTodayTrainingRoutineData() {
     this.assignedRoutineService.getTodayAssignedRoutineByClientId(2)
     .subscribe((data: AssignedRoutine[]) =>{
         console.log(data)

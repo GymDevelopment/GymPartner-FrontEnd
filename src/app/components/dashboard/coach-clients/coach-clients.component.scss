@@ -1,0 +1,22 @@
+.example-card {
+    max-width: 200px;
+    background-color: burlywood;
+  }
+  
+  .example-header-image {
+    background-image: url('https://thispersondoesnotexist.com/image');
+    background-size: cover;
+  }
+
+  button{
+    background-color: black;
+    color: aliceblue;
+    width: 100%;
+  }
+
+  .container{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 10px;
+
+  }

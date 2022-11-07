@@ -1,1 +1,17 @@
-<p>coach-clients works!</p>
+<h1>
+    <strong>Mis clientes</strong>
+</h1 >
+
+<div class="container">
+    <mat-card *ngFor="let client of clients" class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ client.name }} {{ client.lastName }}</mat-card-title>
+          <mat-card-subtitle> Objetivo : {{ client.personalGoal }} </mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://thispersondoesnotexist.com/image" alt="Photo of a Shiba Inu">
+        <mat-card-actions>
+          <button routerLink="/dashboard/coach-clients-detail/{{client.id}}"  mat-button>DETALLES</button>
+        </mat-card-actions>
+      </mat-card>
+</div>

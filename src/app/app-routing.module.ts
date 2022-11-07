@@ -1,3 +1,4 @@
+import { CoachClientsDetailComponent } from './components/dashboard/coach-clients-detail/coach-clients-detail.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { StartPageComponent } from './components/login/start-page/start-page.component';
@@ -15,6 +16,7 @@ import { ClientStatisticsComponent } from './components/dashboard/client-statist
 import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
 import { HomeComponent } from './components/dashboard/home/home.component';
 import { SignInComponent } from './components/login/sign-in/sign-in.component';
+import { ClientTrainingInformationComponent } from './components/dashboard/client-training-information/client-training-information.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "startPage", pathMatch: 'full'},
@@ -24,10 +26,12 @@ const routes: Routes = [
     {path: 'coach-meal-plans', component: CoachMealPlansComponent},
     {path: 'coach-meal-add', component: CoachMealAddComponent},
     {path: 'coach-clients', component: CoachClientsComponent},
+    {path: 'coach-clients-detail/:id', component: CoachClientsDetailComponent},
     {path: 'coach-training-routine', component: CoachTrainingRoutineComponent},
     {path: 'coach-profile', component: CoachProfileComponent},
     {path: 'client-meal-plans', component: ClientMealPlansComponent},
     {path: 'client-training-routine', component: ClientTrainingRoutineComponent},
+    {path: 'client-training-information/:id', component: ClientTrainingInformationComponent},
     {path: 'client-profile', component: ClientProfileComponent},
     {path: 'client-statistics', component: ClientStatisticsComponent},
   ]},

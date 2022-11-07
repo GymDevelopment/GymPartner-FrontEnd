@@ -1,0 +1,41 @@
+<h1>Entrenamiento : {{routine.name}}</h1>
+
+<div class="information">
+    <iframe
+    width="50%"
+    height="315"
+    [src]="routine.url | safe"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+  
+<dir  class="information-card">
+    <mat-card>
+        <mat-card-title>Indicaciones</mat-card-title>
+        <mat-card-content>
+          <p>
+            {{routine.indication}}
+          </p>
+        </mat-card-content>
+      </mat-card>
+      
+      <mat-card>
+          <mat-card-title>Consejos</mat-card-title>
+          <mat-card-content>
+            <p>
+              {{routine.tips}}
+            </p>
+          </mat-card-content>
+        </mat-card>
+
+</dir>
+
+</div>
+
+<br>
+<h2>Duracion :  {{assignedRoutine.duration}}</h2>
+<h2>Calorias quemadas : {{routine.calories}}</h2>
+
+<button (click)="endRoutine()" mat-raised-button color="warn">Finalizar entrenamiento</button>

@@ -1,10 +1,8 @@
-import { Gym } from './gym';
-import { Coach } from './coach';
 export class Client {
     id?: number;
     name?: string;
     lastName?: string;
-    gym?: Gym;
+    gym?: any;
     password?: string;
     email?: string;
     personalGoal?: string;
@@ -12,7 +10,7 @@ export class Client {
     physicalState?: string;
     tall?: number;
     weight?: number;
-    coach?: Coach;
+    coach?: any;
     phone?: string;
   }
 

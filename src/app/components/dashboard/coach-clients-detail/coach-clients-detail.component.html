@@ -1,0 +1,83 @@
+<div class="container">
+    <div style="width: 45%;">
+        <h1>
+            <strong>Cliente : </strong>
+        <span>{{ client.name }} {{ client.lastName }}</span>
+        </h1>
+        <mat-card >
+
+            <img mat-card-image src="https://thispersondoesnotexist.com/image" alt="Photo of a Shiba Inu">
+             <div mat-card-avatar class="example-header-image"></div>
+        </mat-card>
+        <mat-card-content> 
+            <mat-card class="subcard">
+                <strong>
+                    Nombre:   
+                </strong>
+                {{client.name}}
+            </mat-card>
+            <mat-card class="subcard">
+                <strong>
+                    Apellido: 
+                </strong>
+                {{client.lastName}}
+            </mat-card>
+            <mat-card class="subcard">
+                <strong>
+                    Gimnacio: 
+                </strong>
+                {{gym}}
+            </mat-card>
+            <mat-card class="subcard">
+                <strong>
+                    Telefono: 
+                </strong>
+                {{client.phone}}
+            </mat-card>
+          </mat-card-content>
+    </div>
+    <div style="width: 45%; margin-left: 10%;">
+        <h1>
+            <strong>Entrenamientos </strong>
+        </h1>
+        <mat-card class="example-card">
+           <p *ngFor="let routine of routines" >{{routine.name}}</p>
+        </mat-card>
+        <h1>
+            <strong>Desayunos </strong>
+        </h1>
+        <mat-card class="example-card">
+            <p *ngFor="let breakfast of breakfasts" >
+                <strong>Tipo de dita :  </strong>
+                {{breakfast.name}}
+                <strong>Comida :  </strong>
+                {{breakfast.meal}}
+
+            </p>
+        </mat-card>
+        <h1>
+            <strong>Almuerzos </strong>
+        </h1>
+        <mat-card class="example-card">
+            <p *ngFor="let lunch of lunches" >
+                <strong>Tipo de dita :  </strong>
+                {{lunch.name}}
+                <strong>Comida :  </strong>
+                {{lunch.meal}}
+            </p>
+        </mat-card>
+        <h1>
+            <strong>Cenas </strong>
+        </h1>
+        <mat-card class="example-card">
+            <p *ngFor="let dinner of dinners" >
+                <strong>Tipo de dita :  </strong>
+                {{dinner.name}}
+                <strong>Comida :  </strong>
+                {{dinner.meal}}
+            </p>
+        </mat-card>
+
+    </div>
+    
+</div>

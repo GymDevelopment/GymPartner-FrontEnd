@@ -60,7 +60,9 @@
           <td>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Gimnacio</mat-label>
-              <input formControlName="gym" matInput />
+              <mat-select matInput formControlName="gym">
+                <mat-option *ngFor="let gym of gyms" [value]="gym">{{gym.name}}</mat-option>
+            </mat-select>
             </mat-form-field>
             <div
           *ngIf="
@@ -77,6 +79,29 @@
         >
           <span class="mda-form-msg">
             Este campo debe tener como máximo 20 caracteres
+          </span>
+        </div>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Numero de celular</mat-label>
+              <input formControlName="phone" matInput type="number" />
+            </mat-form-field>
+            <div
+          *ngIf="
+            myForm.get('phone')?.hasError('required') &&
+            myForm.get('phone')?.touched
+          "
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg"> Este campo es obligatorio para la comunicacion </span>
+        </div>
+        <div
+          *ngIf="myForm.get('phone')?.hasError('minlength')"
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg">
+            Este campo debe tener como minimo 9 caracteres
           </span>
         </div>
           </td>
@@ -136,6 +161,7 @@
     style="background-color: #feda00"
     type="button"
     [disabled]="myForm.invalid"
+    (click)="register()"
     >
     Iniciar secion
   </button>
