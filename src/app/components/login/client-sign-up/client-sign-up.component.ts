@@ -15,16 +15,17 @@ export class ClientSignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
-      name: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      gym: ['', [Validators.required]],
-      password: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.maxLength(20)]],
+      lastName: ['', [Validators.required, Validators.maxLength(20)]],
+      gym: ['', [Validators.required, Validators.maxLength(20)]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
       email: ['', [Validators.required, Validators.email]],
-      personalGoal: ['', [Validators.required]],
+      
+      personalGoal: ['', [Validators.required,Validators.maxLength(50)]],
       physicalState: ['', [Validators.required]],
       BirthDate: ['', [Validators.required]],
-      tall: ['', [Validators.required]],
-      weight: ['', [Validators.required]],
+      tall: ['', [Validators.required,Validators.maxLength(3)]],
+      weight: ['', [Validators.required,Validators.maxLength(3)]],
       coach: ['', [Validators.required]],
       phone: ['', [Validators.required, Validators.minLength(9)]],
       }

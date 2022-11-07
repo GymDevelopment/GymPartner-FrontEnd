@@ -19,25 +19,78 @@
   <form class="example-form" [formGroup]="myForm">
     <table *ngIf="!next" class="example-full-width" cellspacing="0">
       <tr>
+
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Nombres</mat-label>
-            <input formControlName="name" matInput  />
+            <input matInput formControlName="name" />
           </mat-form-field>
+          <div
+          *ngIf="
+            myForm.get('name')?.hasError('required') &&
+            myForm.get('name')?.touched
+          "
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg"> Dinos su nombre </span>
+        </div>
+        <div
+          *ngIf="myForm.get('name')?.hasError('maxlength')"
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg">
+            Este campo debe tener como máximo 20 caracteres
+          </span>
+        </div>
         </td>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Apellidos</mat-label>
             <input formControlName="lastName" matInput />
           </mat-form-field>
+          <div
+          *ngIf="
+            myForm.get('lastName')?.hasError('required') &&
+            myForm.get('lastName')?.touched
+          "
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg"> Complete sus datos </span>
+        </div>
+        <div
+          *ngIf="myForm.get('lastName')?.hasError('maxlength')"
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg">
+            Este campo debe tener como máximo 20 caracteres
+          </span>
+        </div>
         </td>
       </tr>
       <tr>
+
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Gimnacio</mat-label>
             <input formControlName="gym" matInput />
           </mat-form-field>
+          <div
+          *ngIf="
+            myForm.get('gym')?.hasError('required') &&
+            myForm.get('gym')?.touched
+          "
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg"> Este campo es necesario  </span>
+        </div>
+        <div
+          *ngIf="myForm.get('gym')?.hasError('maxlength')"
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg">
+            Este campo debe tener como máximo 20 caracteres
+          </span>
+        </div>
         </td>
       </tr>
       <tr>
@@ -46,12 +99,46 @@
             <mat-label>Contraseña</mat-label>
             <input formControlName="password" matInput />
           </mat-form-field>
+          <div
+          *ngIf="
+            myForm.get('password')?.hasError('required') &&
+            myForm.get('password')?.touched
+          "
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg"> La contraseña es obligatorio </span>
+        </div>
+        <div
+          *ngIf="myForm.get('password')?.hasError('minlength')"
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg">
+            Este campo debe tener como minimo 8 caracteres
+          </span>
+        </div>
         </td>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Correo electronico</mat-label>
             <input formControlName="email" matInput />
           </mat-form-field>
+          <div
+          *ngIf="
+            myForm.get('email')?.hasError('required') &&
+            myForm.get('email')?.touched
+          "
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg"> Este campo es requerido </span>
+        </div>
+        <div
+          *ngIf="myForm.get('email')?.hasError('email')"
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg">
+            Este campo no tiene formato de correo
+          </span>
+        </div>
         </td>
       </tr>
     </table>
@@ -60,15 +147,45 @@
           <td>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Objetivo principal</mat-label>
-              <input formControlName="personalGoal" matInput />
+              <mat-select matInput formControlName="personalGoal">
+                <mat-option value="Aumentar_Masa_Muscular">Aumentar Masa Muscular</mat-option>
+                <mat-option value="Definicion">Definir</mat-option>
+                <mat-option value="Bajar_Peso">Bajar de peso</mat-option>
+                <mat-option value="Mantener_Peso">Mantener el Peso</mat-option>
+            </mat-select>
             </mat-form-field>
+            <div
+          *ngIf="
+            myForm.get('personalGoal')?.hasError('required') &&
+            myForm.get('personalGoal')?.touched
+          "
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg"> Elija su objetivo Principal </span>
+        </div>
+            
           </td>
+
           <td>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Estado fisico</mat-label>
-              <input formControlName="physicalState" matInput />
+              <mat-select matInput formControlName="physicalState">
+                <mat-option value="Bajo_Peso">Bajo de Peso</mat-option>
+                <mat-option value="Peso_Normal">Peso Normal</mat-option>
+                <mat-option value="Sobrepeso">Sobrepeso</mat-option>
+              </mat-select>
             </mat-form-field>
+            <div
+          *ngIf="
+            myForm.get('physicalState')?.hasError('required') &&
+            myForm.get('physicalState')?.touched
+          "
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg"> Seleccione su condicion fisica  </span>
+        </div>
           </td>
+          
         </tr>
         <tr>
           <td>
@@ -76,6 +193,15 @@
               <mat-label>Fecha de nacimiento</mat-label>
               <input formControlName="BirthDate" matInput type="date" />
             </mat-form-field>
+            <div
+          *ngIf="
+            myForm.get('BirthDate')?.hasError('required') &&
+            myForm.get('BirthDate')?.touched
+          "
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg"> Este campo es necesario </span>
+        </div>
           </td>
           <td style="width: 50%;">
             <table style="width: 100%;">
@@ -84,12 +210,46 @@
                     <mat-label>Altura</mat-label>
                     <input formControlName="tall" matInput  type="number"  />
                   </mat-form-field>
+                  <div
+          *ngIf="
+            myForm.get('tall')?.hasError('required') &&
+            myForm.get('tall')?.touched
+          "
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg"> Dinos su altura </span>
+        </div>
+        <div
+          *ngIf="myForm.get('tall')?.hasError('maxlength')"
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg">
+            Este campo debe tener como máximo 3 caracteres
+          </span>
+        </div>
                 </td>
                 <td style="width: 50%;">
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Peso</mat-label>
                     <input formControlName="weight" matInput  type="number" />
                   </mat-form-field>
+                  <div
+          *ngIf="
+            myForm.get('weight')?.hasError('required') &&
+            myForm.get('weight')?.touched
+          "
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg"> Dinos su peso </span>
+        </div>
+        <div
+          *ngIf="myForm.get('weight')?.hasError('maxlength')"
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg">
+            Este campo debe tener como máximo 3 caracteres
+          </span>
+        </div>
                 </td>
             </table>
           </td>
@@ -100,12 +260,38 @@
               <mat-label>Elegir entrenador</mat-label>
               <input formControlName="coach" matInput />
             </mat-form-field>
+            <div
+          *ngIf="
+            myForm.get('coach')?.hasError('required') &&
+            myForm.get('coach')?.touched
+          "
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg"> Debe seleccionar un entrenador  </span>
+        </div>
           </td>
           <td>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Numero de celular</mat-label>
               <input formControlName="phone" matInput type="number" />
             </mat-form-field>
+            <div
+          *ngIf="
+            myForm.get('phone')?.hasError('required') &&
+            myForm.get('phone')?.touched
+          "
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg"> Este campo es obligatorio para la comunicacion </span>
+        </div>
+        <div
+          *ngIf="myForm.get('phone')?.hasError('minlength')"
+          style="margin-top: -20px"
+        >
+          <span class="mda-form-msg">
+            Este campo debe tener como minimo 9 caracteres
+          </span>
+        </div>
           </td>
         </tr>
       </table>
