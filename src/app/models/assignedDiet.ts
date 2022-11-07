@@ -1,10 +1,13 @@
 import { Client } from './client';
 import { Diet } from './diet';
+import { Coach } from './coach';
 export class AssignedDiet {
     id?: number;
-    diet?:     Diet;
+    breakfast?:     Diet;
+    lunch?:     Diet;
+    dinner?:     Diet;
     client?:     Client;
-    done?:       boolean;
-    day?:        string;
     date?:       Date;
+    coach?: Coach;
+    done?:       boolean;
 }

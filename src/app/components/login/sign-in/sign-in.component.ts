@@ -40,7 +40,7 @@ export class SignInComponent implements OnInit {
       });
     } else {
       this.title = 'coach';
-      this.coachService.getCoach().subscribe((data: Coach[]) => {
+      this.coachService.getCoaches().subscribe((data: Coach[]) => {
         this.coaches = data;
       });
     }

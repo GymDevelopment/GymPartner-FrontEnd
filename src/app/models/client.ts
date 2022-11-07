@@ -8,8 +8,8 @@ export class Client {
     password?: string;
     email?: string;
     personalGoal?: string;
+    birthday?: Date;
     physicalState?: string;
-    birthDate?: Date;
     tall?: number;
     weight?: number;
     coach?: Coach;

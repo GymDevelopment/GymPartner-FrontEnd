@@ -7,9 +7,9 @@ import { Coach } from '../models/coach';
   providedIn: 'root'
 })
 export class CoachService {
-  basePath: string = environment.coachesPath;
+  basePath:string = environment.apiPath + "/coaches";
   constructor(private http: HttpClient) { }
-  getCoach(){
+  getCoaches(){
     return this.http.get<Coach[]>(this.basePath);
   }
   getCoachId(id:any){

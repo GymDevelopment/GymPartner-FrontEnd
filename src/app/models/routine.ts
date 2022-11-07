@@ -5,7 +5,7 @@ export class Routine {
     description?: string;
     indication?:  string;
     tips?:        string;
-    calories?:    number;
     url?:         string;
     coach?:   Coach;
+    calories?:    number;
 }

@@ -72,7 +72,9 @@
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Gimnacio</mat-label>
-            <input formControlName="gym" matInput />
+            <mat-select matInput formControlName="gym">
+              <mat-option *ngFor="let gym of gyms" [value]="gym">{{gym.name}}</mat-option>
+          </mat-select>
           </mat-form-field>
           <div
           *ngIf="
@@ -191,12 +193,12 @@
           <td>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Fecha de nacimiento</mat-label>
-              <input formControlName="BirthDate" matInput type="date" />
+              <input formControlName="birthday" matInput type="date" />
             </mat-form-field>
             <div
           *ngIf="
-            myForm.get('BirthDate')?.hasError('required') &&
-            myForm.get('BirthDate')?.touched
+            myForm.get('birthday')?.hasError('required') &&
+            myForm.get('birthday')?.touched
           "
           style="margin-top: -20px"
         >
@@ -258,7 +260,9 @@
           <td>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Elegir entrenador</mat-label>
-              <input formControlName="coach" matInput />
+              <mat-select matInput formControlName="coach">
+                <mat-option *ngFor="let coach of coaches" [value]="coach">{{coach.name}} {{coach.lastName}}</mat-option>
+            </mat-select>
             </mat-form-field>
             <div
           *ngIf="
@@ -302,6 +306,7 @@
     style="background-color: #feda00"
     type="button"
     [disabled]="myForm.invalid"
+    (click)="register()"
     >
     Iniciar secion
   </button>
