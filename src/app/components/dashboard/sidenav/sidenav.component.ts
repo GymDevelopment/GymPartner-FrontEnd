@@ -3,6 +3,7 @@ import {transition, trigger , style, animate, keyframes} from '@angular/animatio
 import { Navbar } from '../../../models/navbar';
 import { NavbarService } from '../../../services/navbar.service';
 import { SideNavToggle } from '../../../models/sideNavToggle';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -37,13 +38,77 @@ import { SideNavToggle } from '../../../models/sideNavToggle';
 })
 export class SidenavComponent implements OnInit {
 
-  constructor(private navbarService: NavbarService) { }
+  constructor(private navbarService: NavbarService, 
+    private userService : UserService
+    ) { }
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   
   collapsed = false;
   screenWidth = 0;
-  navbarData !: Navbar[];
+  navbarData !: Navbar[]
+  data : Navbar[] = [
+    {
+       "routeLink": "home",
+       "icon": "fal fa-home",
+       "label": "Menú Principal",
+       "type": "client"
+     },
+     {
+       "routeLink": "client-profile",
+       "icon": "fas fa-user",
+       "label": "Perfil",
+       "type": "client"
+     },
+     {
+       "routeLink": "client-statistics",
+       "icon": "fal fa-chart-bar",
+       "label": "Estadisticas",
+       "type": "client"
+     },
+     {
+       "routeLink": "client-training-routine",
+       "icon": "fas fa-dumbbell",
+       "label": "Entrenamientos",
+       "type": "client"
+     },
+     {
+       "routeLink": "client-meal-plans",
+       "icon": "fas fa-balance-scale-right",
+       "label": "Plan Alimentario",
+       "type": "client"
+     },
+     {
+       "routeLink": "home",
+       "icon": "fal fa-home",
+       "label": "Menú Principal",
+       "type": "coach"
+     },
+     {
+       "routeLink": "coach-profile",
+       "icon": "fas fa-user",
+       "label": "Perfil",
+       "type": "coach"
+     },
+     {
+       "routeLink": "coach-training-routine",
+       "icon": "fas fa-dumbbell",
+       "label": "Entrenamientos",
+       "type": "coach"
+     },
+     {
+       "routeLink": "coach-meal-plans",
+       "icon": "fas fa-balance-scale-right",
+       "label": "Plan Alimentario",
+       "type": "coach"
+     },
+     {
+       "routeLink": "coach-clients",
+       "icon": "fal fa-chart-bar",
+       "label": "Clientes",
+       "type": "coach"
+     }
+]
   userType:string = 'client';
 
   @HostListener('window.resize', ['$event'])
@@ -57,23 +122,27 @@ export class SidenavComponent implements OnInit {
 
   changeToClient(){
     this.userType = 'client';
+    this.userService.userType = 'client';
     this.getSidenavData();
   }
   changeToCoach(){
     this.userType = 'coach';
+    this.userService.userType = 'coach';
     this.getSidenavData();
   }
 
   ngOnInit(): void {
+    this.userService.userType = 'client';
     this.getSidenavData();
     //console.log(this.navData);
     this.screenWidth = window.innerWidth;
   }
   getSidenavData(){
-    this.navbarService.getNavbar().subscribe(
+    this.navbarData = this.data.filter(x=>x.type == this.userType)
+    /* this.navbarService.getNavbar().subscribe(
       (data: Navbar[]) =>{this.navbarData = data.filter(x=>x.type == this.userType);
       }
-    );
+    ); */
   }
 
   toggleCollapse():void {

@@ -9,6 +9,7 @@ import { AssignedRoutine } from '../../../models/assignedRoutine';
 import { Coach } from '../../../models/coach';
 import { CoachService } from '../../../services/coach.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-coach-training-detail',
@@ -17,6 +18,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CoachTrainingDetailComponent implements OnInit {
   id !: Number;
+  idCoach !: Number;
   routine : Routine = new Routine();
   clients: Client[] = [];
   coach!: Coach;
@@ -29,10 +31,12 @@ export class CoachTrainingDetailComponent implements OnInit {
     private routineService: RoutineService,
     private assignedRoutineService: AssignedRoutineService,
     private clientService: ClientService,
-    private route : Router
+    private route : Router,
+    private userService : UserService
   ) { }
 
   ngOnInit(): void {
+    this.idCoach = this.userService.userInformation.id;
     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.routineService.getRoutineId(this.id).subscribe((data: Routine) =>{
       this.routine = data;
@@ -40,10 +44,10 @@ export class CoachTrainingDetailComponent implements OnInit {
     this.assignedRoutineService.getClientsByRoutineId(this.id).subscribe((data: Client[]) =>{
       this.clients = data;
     } )
-    this.clientService.getClientByCoachId(2).subscribe((data: Client[]) =>{
+    this.clientService.getClientByCoachId(this.idCoach).subscribe((data: Client[]) =>{
       this.myClients = data;
     } )
-    this.coachService.getCoachId(2).subscribe((data: Coach) =>{
+    this.coachService.getCoachId(this.idCoach).subscribe((data: Coach) =>{
       this.coach = data;
     } )
     this.reactiveForm() 

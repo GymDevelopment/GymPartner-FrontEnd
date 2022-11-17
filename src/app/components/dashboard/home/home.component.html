@@ -6,7 +6,7 @@
   <button *ngFor="let data of cardData" class="button-card" mat-button>
     <mat-card  routerLink="/{{data.routeLink}}" >
         <mat-card-title-group>
-          <mat-card-title>{{data.title}}</mat-card-title>
+          <mat-card-title style="text-align: left;" >{{data.title}}</mat-card-title>
           <mat-card-subtitle>{{data.description}}</mat-card-subtitle>
           <img mat-card-lg-image src="{{data.image}}" >
         </mat-card-title-group>

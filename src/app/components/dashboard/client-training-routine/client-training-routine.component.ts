@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { AssignedRoutine } from '../../../models/assignedRoutine';
 import { AssignedRoutineService } from '../../../services/assigned-routine.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-client-training-routine',
@@ -10,7 +11,7 @@ import { AssignedRoutineService } from '../../../services/assigned-routine.servi
   styleUrls: ['./client-training-routine.component.scss']
 })
 export class ClientTrainingRoutineComponent implements OnInit {
-
+  id !: number;
   displayedColumns: string[] = ['id', 'name', 'duration' ,'calories', 'actions'];
   dataSource = new MatTableDataSource<AssignedRoutine>();
 
@@ -20,9 +21,13 @@ export class ClientTrainingRoutineComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
 
-  constructor(private assignedRoutineService : AssignedRoutineService) { }
+  constructor(
+    private assignedRoutineService : AssignedRoutineService, 
+    private userService: UserService
+    ) { }
 
   ngOnInit(): void {
+    this.id = this.userService.userInformation.id;
     this.getTodayTrainingRoutineData();
     this.getFutureTrainingRoutineData();
   }
@@ -32,17 +37,15 @@ export class ClientTrainingRoutineComponent implements OnInit {
   }
 
   getTodayTrainingRoutineData() {
-    this.assignedRoutineService.getTodayAssignedRoutineByClientId(2)
+    this.assignedRoutineService.getTodayAssignedRoutineByClientId(this.id)
     .subscribe((data: AssignedRoutine[]) =>{
-        console.log(data)
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.paginator = this.paginator;
     });
   }
   getFutureTrainingRoutineData() {
-    this.assignedRoutineService.getFutureAssignedRoutineByClientId(2)
+    this.assignedRoutineService.getFutureAssignedRoutineByClientId(this.id)
     .subscribe((data: AssignedRoutine[]) =>{
-        console.log(data)
         this.futureTraining = data;
     });
   }

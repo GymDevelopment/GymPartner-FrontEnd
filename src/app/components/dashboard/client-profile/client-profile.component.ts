@@ -10,21 +10,16 @@ import { Client } from '../../../models/client';
 })
 export class ClientProfileComponent implements OnInit {
   selectedClient: Client = new Client();
-  // id!:Number;
+  id!:Number;
   constructor(
     private clientService: ClientService,
     private userService: UserService
   ) {}
 
   ngOnInit(): void {
-    /*     this.id = this.userService.userInformation.id;
-    this.clientService.getClientId(this.id).subscribe((data)=>{
-      debugger
-      console.log(data)
-    }) */
-    this.clientService.getClientId(2).subscribe((data: Client) => {
+    this.id = this.userService.userInformation.id;
+    this.clientService.getClientId(this.id).subscribe((data: Client) => {
       this.selectedClient = data;
-      console.log(this.selectedClient);
     });
   }
 }

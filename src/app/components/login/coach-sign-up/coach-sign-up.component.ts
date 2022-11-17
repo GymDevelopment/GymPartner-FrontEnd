@@ -4,6 +4,8 @@ import { GymService } from '../../../services/gym.service';
 import { Gym } from '../../../models/gym';
 import { CoachService } from '../../../services/coach.service';
 import { Coach } from '../../../models/coach';
+import { UserService } from '../../../services/user.service';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-coach-sign-up',
@@ -13,10 +15,12 @@ import { Coach } from '../../../models/coach';
 export class CoachSignUpComponent implements OnInit {
   myForm !: FormGroup;
   gyms !: Gym[];
+  user !: User
   constructor(
     private fb : FormBuilder,
     private gymService: GymService,
     private coachService: CoachService,
+    private userService : UserService
     ) { }
 
   ngOnInit(): void {
@@ -39,6 +43,11 @@ export class CoachSignUpComponent implements OnInit {
   }
   register(){
     this.coachService.addCoach(this.myForm.value).subscribe((data: Coach) => {
+      this.user = {
+        id: this.myForm.value.id,
+        typeUser: 'coach',
+      }
+      this.userService.userInformation = this.user;
       console.log(data);
     })
   }

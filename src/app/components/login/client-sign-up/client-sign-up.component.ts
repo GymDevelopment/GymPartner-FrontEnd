@@ -6,6 +6,8 @@ import { Coach } from '../../../models/coach';
 import { GymService } from '../../../services/gym.service';
 import { CoachService } from '../../../services/coach.service';
 import { ClientService } from '../../../services/client.service';
+import { User } from '../../../models/user';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-client-sign-up',
@@ -19,11 +21,13 @@ export class ClientSignUpComponent implements OnInit {
   coaches!: Coach[];
   next = false;
   label: string = 'Siguiente';
+  user !: User
   constructor(
     private fb : FormBuilder, 
     private gymService: GymService,
     private coachService: CoachService,
-    private clientService : ClientService
+    private clientService : ClientService,
+    private userService : UserService
     ) { }
 
   ngOnInit(): void {
@@ -64,6 +68,11 @@ export class ClientSignUpComponent implements OnInit {
   }
   register(){
     this.clientService.addClient(this.myForm.value).subscribe((data: Client) => {
+      this.user = {
+        id: this.myForm.value.id,
+        typeUser: 'client',
+      }
+      this.userService.userInformation = this.user;
       console.log(data);
     })
   }

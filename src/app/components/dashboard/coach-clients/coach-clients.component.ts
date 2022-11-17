@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../../services/client.service';
 import { Client } from '../../../models/client';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-coach-clients',
@@ -9,12 +10,15 @@ import { Client } from '../../../models/client';
 })
 export class CoachClientsComponent implements OnInit {
   clients : Client[] = [];
+  id !: Number;
   constructor(
-    private clientService: ClientService
+    private clientService: ClientService,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
-    this.clientService.getClientByCoachId(2).subscribe((data: Client[]) => {
+    this.id = this.userService.userInformation.id;
+    this.clientService.getClientByCoachId(this.id).subscribe((data: Client[]) => {
       this.clients = data;
     })
   }

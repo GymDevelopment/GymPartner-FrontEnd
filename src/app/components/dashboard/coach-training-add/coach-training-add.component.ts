@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Coach } from '../../../models/coach';
 import { CoachService } from '../../../services/coach.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-coach-training-add',
@@ -14,16 +15,19 @@ import { CoachService } from '../../../services/coach.service';
 export class CoachTrainingAddComponent implements OnInit {
   myForm!: FormGroup;
   coach!: Coach;
+  id !: Number;
   constructor(
     private routineService: RoutineService,
     private coachService: CoachService,
     private fb: FormBuilder,
-    private route: Router
+    private route: Router,
+    private userService : UserService
 
   ) { }
 
   ngOnInit(): void {
-    this.coachService.getCoachId(2).subscribe((data: Coach) => {
+    this.id = this.userService.userInformation.id;
+    this.coachService.getCoachId(this.id).subscribe((data: Coach) => {
       this.coach = data;
     })
 
@@ -54,7 +58,6 @@ export class CoachTrainingAddComponent implements OnInit {
     };
 
     this.routineService.addRoutine(routine).subscribe((data: Routine) =>{
-      console.log(data)
     })
     this.route.navigate(['/dashboard/coach-training-routine']); 
   }
