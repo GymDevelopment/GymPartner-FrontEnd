@@ -19,6 +19,8 @@ import { SignInComponent } from './components/login/sign-in/sign-in.component';
 import { ClientTrainingInformationComponent } from './components/dashboard/client-training-information/client-training-information.component';
 import { CoachTrainingAddComponent } from './components/dashboard/coach-training-add/coach-training-add.component';
 import { CoachTrainingDetailComponent } from './components/dashboard/coach-training-detail/coach-training-detail.component';
+import { ClientMealInformationComponent } from './components/dashboard/client-meal-information/client-meal-information.component';
+import { CoachMealInformationComponent } from './components/dashboard/coach-meal-information/coach-meal-information.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "startPage", pathMatch: 'full'},
@@ -26,6 +28,7 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent, children: [
     {path: 'home', component: HomeComponent},
     {path: 'coach-meal-plans', component: CoachMealPlansComponent},
+    {path: 'coach-meal-information/:id', component: CoachMealInformationComponent},
     {path: 'coach-meal-add', component: CoachMealAddComponent},
     {path: 'coach-clients', component: CoachClientsComponent},
     {path: 'coach-clients-detail/:id', component: CoachClientsDetailComponent},
@@ -34,6 +37,7 @@ const routes: Routes = [
     {path: 'coach-training-detail/:id', component: CoachTrainingDetailComponent},
     {path: 'coach-profile', component: CoachProfileComponent},
     {path: 'client-meal-plans', component: ClientMealPlansComponent},
+    {path: 'client-meal-information/:id', component: ClientMealInformationComponent},
     {path: 'client-training-routine', component: ClientTrainingRoutineComponent},
     {path: 'client-training-information/:id', component: ClientTrainingInformationComponent},
     {path: 'client-profile', component: ClientProfileComponent},

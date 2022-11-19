@@ -27,4 +27,20 @@ export class ClientService {
   updateClient(id:any, client:any){
     return this.http.put<Client>(`${this.basePath}/clients/${id}`, client);
   }
+
+  exportClientByCoachId(id:any) {
+    const endpoint = `${this.basePath}/coaches/${id}/assignedRoutine/export/excel`;
+    return this.http.get(endpoint, {
+      responseType: 'blob',
+    });
+  }
+
+  searchByFullName(id:any, name:string, lastName:string){
+    const endpoint = `${this.basePath}/coaches/${id}/clients/search/fullName?name=${name}&lastName=${lastName}`
+    console.log(endpoint)
+    return this.http.get<Client[]>(
+      endpoint
+      );
+  }
+
 }

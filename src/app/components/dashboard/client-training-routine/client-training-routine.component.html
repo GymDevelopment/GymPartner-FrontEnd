@@ -1,6 +1,17 @@
 <h1>
   <strong>Mis Entrenamientos </strong>
 </h1>
+
+<div class="export-excel">
+  <button
+  (click)="exportExcel()"
+  mat-button
+  style="background-color: #feda00; color: black;"
+  type="button"
+>
+Generar reporte
+</button>
+</div>
 <h2>Mis entrenamientos para hoy</h2>
 <mat-form-field appearance="standard">
   <mat-label>Buscar</mat-label>
@@ -57,6 +68,45 @@
 </mat-paginator>
 
 <h2>Mis entrenamientos futuros</h2>
+
+<mat-card>
+  <form [formGroup]="form" (submit)="search()">
+        <mat-card-header>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Seleccione un rango de fechas:</mat-label>
+              <mat-date-range-input [rangePicker]="picker" [max]="maxEnd">
+                <input
+                  matStartDate
+                  placeholder="Fecha inicio"
+                  formControlName="startDate"
+                />
+                <input
+                  matEndDate
+                  placeholder="Fecha fin"
+                  formControlName="endDate"
+                />
+              </mat-date-range-input>
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+          </div>
+        </mat-card-header>
+
+    <button mat-raised-button color="primary" type="submit">Buscar</button>
+    <button
+      mat-button
+      mat-raised-button
+      color="accent"
+      routerLink="/admin/consult/report"
+    >
+      Ver reporte
+    </button>
+  </form>
+</mat-card>
 
 <mat-card *ngFor="let data of futureTraining">
   {{ data.routine?.id }} : {{ data.routine?.name }} : {{data.date}}</mat-card

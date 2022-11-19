@@ -7,7 +7,7 @@ import { User } from '../models/user';
 export class UserService {
   user !: User;
   constructor() {
-    this.user = {typeUser: 'client', id : 5}
+    this.user = {typeUser: 'client', id : 2}
    }
   set userInformation(newUser: User){
     this.user = newUser;

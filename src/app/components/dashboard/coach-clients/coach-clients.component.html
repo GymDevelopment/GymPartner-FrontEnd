@@ -1,6 +1,35 @@
-<h1>
+<div class="general">
+  <h1>
     <strong>Mis clientes</strong>
 </h1 >
+
+<mat-card>
+  <h2 class="alinear">Buscar por nombre o apellido</h2>
+  <form [formGroup]="form" (submit)="search()">
+        <mat-form-field>
+          <input matInput placeholder="Ingrese nombre a buscar" formControlName="name" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Ingrese apellido a buscar"
+            formControlName="lastName"
+          />
+        </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Buscar</button>
+    <button
+  (click)="exportExcel()"
+  mat-button
+  style="background-color: #feda00; color: black;"
+  type="button"
+>
+Generar reporte
+</button>
+  </form>
+</mat-card>
+
+<br>
 
 <div class="container">
     <mat-card *ngFor="let client of clients" class="example-card">
@@ -9,9 +38,9 @@
           <mat-card-title>{{ client.name }} {{ client.lastName }}</mat-card-title>
           <mat-card-subtitle> Objetivo : {{ client.personalGoal }} </mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="https://thispersondoesnotexist.com/image" alt="Photo of a Shiba Inu">
         <mat-card-actions>
           <button routerLink="/dashboard/coach-clients-detail/{{client.id}}"  mat-button>DETALLES</button>
         </mat-card-actions>
       </mat-card>
+</div>
 </div>

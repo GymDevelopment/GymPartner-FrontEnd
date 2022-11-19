@@ -10,7 +10,10 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatToolbarModule} from '@angular/material/toolbar'
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+import { MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -26,6 +29,8 @@ import {MatToolbarModule} from '@angular/material/toolbar'
     MatPaginatorModule,
     MatSnackBarModule,
     MatToolbarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ], 
   exports:[
     MatFormFieldModule,
@@ -38,6 +43,8 @@ import {MatToolbarModule} from '@angular/material/toolbar'
     MatSnackBarModule,
     MatPaginatorModule,
     MatToolbarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ]
 })
 export class AngularMaterialModule { }

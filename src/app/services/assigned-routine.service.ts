@@ -29,6 +29,9 @@ export class AssignedRoutineService {
   getAssignedRoutineByClientId(id:any){
     return this.http.get<AssignedRoutine[]>(`${this.basePath}/clients/${id}/assignedRoutine`);
   }
+  getAssignedRoutineByClientIdReport(id:any){
+    return this.http.get<AssignedRoutine[]>(`${this.basePath}/clients/${id}/assignedRoutineReport`);
+  }
   getTodayAssignedRoutineByClientId(id:any){
     return this.http.get<AssignedRoutine[]>(`${this.basePath}/clients/${id}/todayAssignedRoutines`);
   }
@@ -43,5 +46,16 @@ export class AssignedRoutineService {
   }
   updateAssignedRoutine(id:any, assignedRoutine:AssignedRoutine){
     return this.http.put<AssignedRoutine>(`${this.basePath}/assignedRoutines/${id}`, assignedRoutine);
+  }
+  exportAssignedRoutineByClientId(id:any) {
+    const endpoint = `${this.basePath}/assignedRoutine/export/excel/${id}`;
+    return this.http.get(endpoint, {
+      responseType: 'blob',
+    });
+  }
+  searchByDate(id:any, date1:string, date2:string){
+    return this.http.get<AssignedRoutine[]>(
+      `${this.basePath}/clients/${id}/assignedRoutine/search/date?date1=${date1}&date2=${date2}`
+      );
   }
 }
