@@ -71,21 +71,12 @@ export class HomeComponent implements OnInit {
   ]
 
   constructor(
-    private homeCardService: HomeCardService,
     private userService : UserService 
     ) { }
 
 
   ngOnInit(): void {
     this.clientType = this.userService.userInformation.typeUser;
-    //this.getHomeCardsData();
-    console.log(this.data)
     this.cardData = this.data.filter((card: HomeCard) => card.type == this.clientType);
-  }
-  getHomeCardsData(){
-    this.homeCardService.getHomeCard().subscribe((data: HomeCard[])=>
-       { this.cardData = data;
-      }
-    )
   }
 }

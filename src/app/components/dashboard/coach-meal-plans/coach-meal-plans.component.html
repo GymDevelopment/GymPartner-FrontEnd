@@ -1,1 +1,68 @@
-<p>coach-meal-plans works!</p>
+<h1>Dietas disponibles</h1>
+
+<button (click) = "changeOption()"  style="background-color: coral; width: 50%; margin-left: 25%;" mat-button  >{{option}}</button>
+<div *ngIf ="this.option != 'Ver solo mis dietas'" class="add" >
+    <button
+      routerLink="/dashboard/coach-meal-add"
+      mat-button
+      style="background-color: gold; width: 50%; margin-left: 25%;"
+      type="button"
+    >
+      Nuevo dieta
+    </button>
+    </div>
+<br>
+<br>
+
+
+<div class="container">
+
+    <div class="cards">
+        <h2>Desayunos</h2>
+        <mat-card class="example-card" *ngFor="let diet of breakfast" >
+            <h2>
+                {{diet.meal}}
+            </h2>
+            <mat-card-content>
+              <p>
+                {{diet.indication}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button style="background-color: yellow; width: 50%;" mat-button routerLink="/dashboard/coach-meal-information/{{diet.id}}" >DETALLES</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+    <div class="cards">
+        <h2>Almuerzos</h2>
+        <mat-card class="example-card" *ngFor="let diet of lunch" >
+            <h2>
+                {{diet.meal}}
+            </h2>
+            <mat-card-content>
+              <p>
+                {{diet.indication}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button style="background-color: yellow; width: 50%;" mat-button routerLink="/dashboard/coach-meal-information/{{diet.id}}" >DETALLES</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+    <div class="cards">
+        <h2>Cenas</h2>
+        <mat-card class="example-card" *ngFor="let diet of dinner" >
+            <h2>
+                {{diet.meal}}
+            </h2>
+            <mat-card-content>
+              <p>
+                {{diet.indication}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button style="background-color: yellow; width: 50%;" mat-button routerLink="/dashboard/coach-meal-information/{{diet.id}}" >DETALLES</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+</div>

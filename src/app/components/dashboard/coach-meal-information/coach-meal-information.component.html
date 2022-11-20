@@ -1,0 +1,30 @@
+<button routerLink="/dashboard/coach-meal-plans" mat-raised-button color="warn"><</button>
+
+<h1 style="font-size: 40px; text-align: center;" *ngIf = "diet.mealType == 'breakfast'">Desayuno</h1>
+<h1 style="font-size: 40px; text-align: center;" *ngIf = "diet.mealType == 'lunch'">Almuerzo</h1>
+<h1 style="font-size: 40px; text-align: center;" *ngIf = "diet.mealType == 'dinner'">Cena</h1>
+
+
+<div class="information">
+    <img class = "image" [src]="diet.picture" alt="desayuno">
+    <mat-card class="information-card">
+        <mat-card-title>Dieta : </mat-card-title>
+        <p>{{diet.name}} </p>
+        <mat-card-title>Comida : </mat-card-title>
+        <p>{{diet.meal}} </p>
+        <mat-card-title>Indicaciones : </mat-card-title>
+        <mat-card-content>
+          <p>
+            {{diet.indication}}
+          </p>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="information-card">
+        <mat-card-title>Hora de consumo : </mat-card-title>
+        <p>  {{diet.hour}}  </p>
+        <mat-card-title>Calorias : </mat-card-title>
+        <mat-card-content>
+          <p>  {{diet.calories}} </p>
+        </mat-card-content>
+      </mat-card>
+</div>

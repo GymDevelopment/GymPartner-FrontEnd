@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Coach } from '../../../models/coach';
-import { ClientService } from '../../../services/client.service';
-import { CoachService } from '../../../services/coach.service';
 import { Client } from '../../../models/client';
-import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/user';
+import { LoginService } from '../../../services/login.service';
+import { Login } from '../../../models/login';
+import { UserStorageService } from '../../../services/user-storage.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,33 +17,21 @@ export class SignInComponent implements OnInit {
   title: string = '';
   myForm!: FormGroup;
   user: string = '';
-  clients!: Client[];
   selectedUser!: any;
-  coaches!: Coach[];
   userLogin!: User;
+
+  login : Login;
 
   constructor(
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private route: Router,
-    private clientService: ClientService,
-    private coachService: CoachService,
-    private userService: UserService
+    private loginService: LoginService,
+    private userStorageService: UserStorageService
   ) {}
 
   ngOnInit(): void {
     this.user = String(this.activatedRoute.snapshot.paramMap.get('user'));
-    if (this.user == 'client') {
-      this.title = 'cliente';
-      this.clientService.getClient().subscribe((data: Client[]) => {
-        this.clients = data;
-      });
-    } else {
-      this.title = 'coach';
-      this.coachService.getCoaches().subscribe((data: Coach[]) => {
-        this.coaches = data;
-      });
-    }
     this.myForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -51,29 +39,31 @@ export class SignInComponent implements OnInit {
   }
 
   signIn() {
+    this.login = {
+      email: this.myForm.value.email,
+      password: this.myForm.value.password
+    }
+
     if (this.user == 'client') {
-      this.selectedUser = this.clients.find((x) => {
-        return (
-          x.email == this.myForm.value.email &&
-          x.password == this.myForm.value.password
-        );
+      this.loginService.signInClient(this.login).subscribe(
+        (data: any) => {
+          this.userLogin = {
+            id: Number(data.id),
+            typeUser: 'client'
+          }
+          this.userStorageService.user =  this.userLogin;
+          this.route.navigate(['/dashboard/home']);
       });
     } else {
-      this.selectedUser = this.coaches.find((x) => {
-        return (
-          x.email == this.myForm.value.email &&
-          x.password == this.myForm.value.password
-        );
+      this.loginService.signInCoach(this.login).subscribe(
+        (data: any) => {
+          this.userLogin = {
+            id: Number(data.id),
+            typeUser: 'coach'
+          }
+          this.userStorageService.user =  this.userLogin;
+          this.route.navigate(['/dashboard/home']);
       });
-    }
-    if (this.selectedUser != undefined) {
-      this.userLogin = {
-        id: Number(this.selectedUser.id),
-        typeUser: this.user
-      };
-      this.userService.userInformation = this.userLogin;
-      this.route.navigate(['/dashboard/home']);
-    }
-    //this.route.navigate(['/dashboard/home'])
+    }    
   }
 }

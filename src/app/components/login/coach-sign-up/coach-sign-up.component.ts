@@ -6,6 +6,7 @@ import { CoachService } from '../../../services/coach.service';
 import { Coach } from '../../../models/coach';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/user';
+import { CoachRegister } from '../../../models/coachRegister';
 
 @Component({
   selector: 'app-coach-sign-up',
@@ -42,13 +43,12 @@ export class CoachSignUpComponent implements OnInit {
     })
   }
   register(){
-    this.coachService.addCoach(this.myForm.value).subscribe((data: Coach) => {
+    this.coachService.addCoach(this.myForm.value).subscribe((data: CoachRegister) => {
       this.user = {
         id: this.myForm.value.id,
         typeUser: 'coach',
       }
       this.userService.userInformation = this.user;
-      console.log(data);
     })
   }
 

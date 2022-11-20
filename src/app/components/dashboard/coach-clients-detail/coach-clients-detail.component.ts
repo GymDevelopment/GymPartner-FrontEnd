@@ -30,7 +30,7 @@ export class CoachClientsDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    /* this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.clientService.getClientId(this.id).subscribe((data: Client) =>{
       this.client = data;
       this.gym = data.gym.name;
@@ -47,7 +47,7 @@ export class CoachClientsDetailComponent implements OnInit {
     } )
     this.assignedDietService.getDinnerByClientId(this.id).subscribe((data: Diet[]) =>{
       this.dinners = data;
-    } )
+    } ) */
   }
 
 }

@@ -6,4 +6,26 @@ table {
     font-size: 14px;
     width: 100%;
   }
-  
+
+  .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .cards{
+    background-color: aqua;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    width: 32%;
+  }
+
+  h1{
+    text-align: center;
+  }
+  .example-card{
+    margin: 4px;
+  }

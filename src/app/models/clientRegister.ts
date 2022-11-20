@@ -1,9 +1,9 @@
-export class Client {
+export class ClientRegister{
     id?: number;
     name?: string;
     lastName?: string;
     gym?: any;
-    //password?: string;
+    password?: string;
     email?: string;
     personalGoal?: string;
     birthday?: Date;
@@ -12,7 +12,4 @@ export class Client {
     weight?: number;
     coach?: any;
     phone?: string;
-  }
-
-
-
+}

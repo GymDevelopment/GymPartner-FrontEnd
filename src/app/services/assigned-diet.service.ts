@@ -27,17 +27,7 @@ export class AssignedDietService {
   }
 
   getAssignedDietByClientId(id:any){
-    return this.http.get<AssignedDiet>(`${this.basePath}/assignedDietsTodayByClientId/${id}`);
-  }
-
-  getBreakfastByClientId(id:any){
-    return this.http.get<Diet[]>(`${this.basePath}/clients/${id}/breakfast`);
-  }
-  getLunchByClientId(id:any){
-    return this.http.get<Diet[]>(`${this.basePath}/clients/${id}/lunch`);
-  }
-  getDinnerByClientId(id:any){
-    return this.http.get<Diet[]>(`${this.basePath}/clients/${id}/dinner`);
+    return this.http.get<AssignedDiet[]>(`${this.basePath}/assignedDietsTodayByClientId/${id}`);
   }
 
 }

@@ -107,7 +107,14 @@ export class SidenavComponent implements OnInit {
        "icon": "fal fa-chart-bar",
        "label": "Clientes",
        "type": "coach"
-     }
+     },
+     
+     {
+      "routeLink": "coach-statistics",
+      "icon": "fas fa-user-chart",
+      "label": "Estadisticas",
+      "type": "coach"
+    }
 ]
   userType:string = 'client';
 

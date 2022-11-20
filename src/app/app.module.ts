@@ -31,6 +31,7 @@ import { CoachTrainingAddComponent } from './components/dashboard/coach-training
 import { CoachTrainingDetailComponent } from './components/dashboard/coach-training-detail/coach-training-detail.component';
 import { ClientMealInformationComponent } from './components/dashboard/client-meal-information/client-meal-information.component';
 import { CoachMealInformationComponent } from './components/dashboard/coach-meal-information/coach-meal-information.component';
+import { CoachStatisticsComponent } from './components/dashboard/coach-statistics/coach-statistics.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { CoachMealInformationComponent } from './components/dashboard/coach-meal
     CoachTrainingDetailComponent,
     ClientMealInformationComponent,
     CoachMealInformationComponent,
+    CoachStatisticsComponent,
   ],
   imports: [
     BrowserModule,

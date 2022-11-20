@@ -2,16 +2,7 @@
   <strong>Mis Entrenamientos </strong>
 </h1>
 
-<div class="export-excel">
-  <button
-  (click)="exportExcel()"
-  mat-button
-  style="background-color: #feda00; color: black;"
-  type="button"
->
-Generar reporte
-</button>
-</div>
+
 <h2>Mis entrenamientos para hoy</h2>
 <mat-form-field appearance="standard">
   <mat-label>Buscar</mat-label>
@@ -98,13 +89,13 @@ Generar reporte
 
     <button mat-raised-button color="primary" type="submit">Buscar</button>
     <button
-      mat-button
-      mat-raised-button
-      color="accent"
-      routerLink="/admin/consult/report"
-    >
-      Ver reporte
-    </button>
+    (click)="exportExcel()"
+    mat-button
+    style="background-color: #feda00; color: black;"
+    type="button"
+  >
+  Generar reporte
+  </button>
   </form>
 </mat-card>
 

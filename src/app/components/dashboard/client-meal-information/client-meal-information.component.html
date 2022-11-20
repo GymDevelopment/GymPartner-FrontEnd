@@ -7,7 +7,11 @@
 <div class="information">
     <img class = "image" [src]="diet.picture" alt="desayuno">
     <mat-card class="information-card">
-        <mat-card-title>Dieta : {{diet.name}} Comida : {{diet.meal}}</mat-card-title>
+        <mat-card-title>Dieta : </mat-card-title>
+        <p>{{diet.name}} </p>
+        <mat-card-title>Comida : </mat-card-title>
+        <p>{{diet.meal}} </p>
+        <mat-card-title>Indicaciones : </mat-card-title>
         <mat-card-content>
           <p>
             {{diet.indication}}
@@ -15,9 +19,9 @@
         </mat-card-content>
       </mat-card>
       <mat-card class="information-card">
-        <mat-card-title>Hora de consumo</mat-card-title>
+        <mat-card-title>Hora de consumo : </mat-card-title>
         <p>  {{diet.hour}}  </p>
-        <mat-card-title>Calorias</mat-card-title>
+        <mat-card-title>Calorias : </mat-card-title>
         <mat-card-content>
           <p>  {{diet.calories}} </p>
         </mat-card-content>

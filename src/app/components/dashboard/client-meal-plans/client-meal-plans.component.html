@@ -4,60 +4,60 @@
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>Desayuno</mat-card-title>
-      <mat-card-subtitle>{{dietToday.breakfast.meal}}</mat-card-subtitle>
+      <mat-card-subtitle>{{breakfast.meal}}</mat-card-subtitle>
     </mat-card-header>
     <img
       mat-card-image
-      [src]="dietToday.breakfast.picture"
+      [src]="breakfast.picture"
       alt="Imagen de desayuno"
     />
     <mat-card-content>
       <p>
-        {{dietToday.breakfast.indication}}
+        {{breakfast.indication}}
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button routerLink="/dashboard/client-meal-information/1" >DETALLES</button>
+      <button mat-button routerLink="/dashboard/client-meal-information/{{breakfast.id}}" >DETALLES</button>
     </mat-card-actions>
   </mat-card>
   <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>Almuerzo</mat-card-title>
-      <mat-card-subtitle>{{dietToday.lunch.meal}}</mat-card-subtitle>
+      <mat-card-subtitle>{{lunch.meal}}</mat-card-subtitle>
     </mat-card-header>
     <img
       mat-card-image
-      [src]="dietToday.lunch.picture"
+      [src]="lunch.picture"
       alt="Imagen de un almuerzo"
     />
     <mat-card-content>
       <p>
-        {{dietToday.breakfast.indication}}
+        {{lunch.indication}}
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button routerLink="/dashboard/client-meal-information/1" >DETALLES</button>
+      <button mat-button routerLink="/dashboard/client-meal-information/{{lunch.id}}" >DETALLES</button>
     </mat-card-actions>
   </mat-card>
   <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>Cena</mat-card-title>
-      <mat-card-subtitle>{{dietToday.dinner.meal}}</mat-card-subtitle>
+      <mat-card-subtitle>{{dinner.meal}}</mat-card-subtitle>
     </mat-card-header>
     <img
       mat-card-image
-      [src]="dietToday.dinner.picture"
+      src="{{dinner.picture}}"
       alt="Imagen de una cena"
     />
     <mat-card-content>
       <p>
-        {{dietToday.breakfast.indication}}
+        {{dinner.indication}}
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button routerLink="/dashboard/client-meal-information/1" >DETALLES</button>
+      <button mat-button routerLink="/dashboard/client-meal-information/{{dinner.id}}" >DETALLES</button>
     </mat-card-actions>
   </mat-card>
 </div>

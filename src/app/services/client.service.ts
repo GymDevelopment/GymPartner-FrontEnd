@@ -42,5 +42,8 @@ export class ClientService {
       endpoint
       );
   }
+  callProcedureOrFunction() {
+    return this.http.get<any[]>(`${this.basePath}/client/callProcedure`);
+  }
 
 }
