@@ -7,4 +7,5 @@ export class Diet {
     hour?:       number;
     mealType?:   string;
     coach?:  any;
+    picture?:    any;
 }

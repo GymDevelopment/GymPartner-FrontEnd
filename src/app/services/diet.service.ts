@@ -7,16 +7,16 @@ import { Diet } from '../models/diet';
   providedIn: 'root'
 })
 export class DietService {
-  basePath :string = environment.dietsPath;
+  basePath :string = environment.apiPath;
   constructor(private http:HttpClient) { }
   getDiet(){
-    return this.http.get<Diet[]>(this.basePath);
+    return this.http.get<Diet[]>(this.basePath + "/diets");
   }
   getDietId(id:any){
-    return this.http.get<Diet>(`${this.basePath}/${id}`);
+    return this.http.get<Diet>(`${this.basePath}/diets/${id}`);
   }
   addDiet(diet:any){
-    return this.http.post<Diet>(this.basePath, diet);
+    return this.http.post<Diet>(this.basePath + "/diets", diet);
   }
   deleteDiet(id:any){
       return this.http.delete<Diet>(`${this.basePath}/${id}`);

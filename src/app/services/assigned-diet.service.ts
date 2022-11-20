@@ -26,6 +26,10 @@ export class AssignedDietService {
     return this.http.put<AssignedDiet>(`${this.basePath}/${id}`, assignedDiet);
   }
 
+  getAssignedDietByClientId(id:any){
+    return this.http.get<AssignedDiet>(`${this.basePath}/assignedDietsTodayByClientId/${id}`);
+  }
+
   getBreakfastByClientId(id:any){
     return this.http.get<Diet[]>(`${this.basePath}/clients/${id}/breakfast`);
   }
