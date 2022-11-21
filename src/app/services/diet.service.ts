@@ -16,7 +16,7 @@ export class DietService {
     return this.http.get<Diet>(`${this.basePath}/diets/${id}`);
   }
   addDiet(diet:any){
-    return this.http.post<Diet>(this.basePath + "/diets", diet);
+    return this.http.post<Diet[]>(this.basePath + "/diets", diet);
   }
 
   deleteDiet(id:any){

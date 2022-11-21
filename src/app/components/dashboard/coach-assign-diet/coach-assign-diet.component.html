@@ -1,0 +1,32 @@
+<div class="information">
+
+    <mat-card class="column">
+        <mat-card-title>Asignar a nuevos clientes</mat-card-title>
+        <br>
+        <form style="width: 80%; margin-left: 10%; " [formGroup]="myForm" autocomplete="off">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Seleccionar cliente</mat-label>
+                  <mat-select matInput formControlName="client" >
+                      <mat-option *ngFor="let client of myClients" [value]="client">{{client.name}} {{client.lastName}}</mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Fecha de la rutina</mat-label>
+                <input formControlName="date" matInput type="date" />
+              </mat-form-field>
+              <div
+            *ngIf="
+              myForm.get('date')?.hasError('required') &&
+              myForm.get('date')?.touched
+            "
+            style="margin-top: -20px"
+          >
+            <span class="mda-form-msg"> Este campo es necesario </span>
+          </div>
+        </form>
+        
+        
+        <br>
+        <button routerLink="/dashboard/coach-meal-plans" [disabled]="myForm.invalid" (click)="assignedDiet()" mat-raised-button style="background-color: yellow; width: 100%;">Asignar</button>
+      </mat-card>
+</div>

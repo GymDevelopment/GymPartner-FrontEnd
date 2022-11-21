@@ -4,6 +4,7 @@ import { AssignedDiet } from '../../../models/assignedDiet';
 import { AssignedDietService } from '../../../services/assigned-diet.service';
 import { UserService } from '../../../services/user.service';
 import { DietService } from '../../../services/diet.service';
+import { DietsStorageService } from '../../../services/diets-storage.service';
 
 @Component({
   selector: 'app-coach-meal-plans',
@@ -12,6 +13,7 @@ import { DietService } from '../../../services/diet.service';
 })
 export class CoachMealPlansComponent implements OnInit {
   breakfast !: Diet[]
+  valid : boolean;
   lunch !: Diet[]
   dinner !: Diet[]
   idCoach !: Number;
@@ -19,10 +21,12 @@ export class CoachMealPlansComponent implements OnInit {
   option : String = "Ver solo mis dietas"
   constructor(
     private dietService : DietService,
-    private userService : UserService
+    private userService : UserService,
+    private dietStorageService : DietsStorageService
   ) { }
 
   ngOnInit(): void {
+    this.valid = this.dietStorageService.Assigned;
     this.idCoach = this.userService.userInformation.id;
     this.id = -1;
     this.getInformation();
@@ -51,5 +55,7 @@ export class CoachMealPlansComponent implements OnInit {
     }
     this.getInformation();
   }
+
+ 
 
 }

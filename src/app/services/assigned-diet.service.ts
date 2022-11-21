@@ -17,7 +17,7 @@ export class AssignedDietService {
     return this.http.get<AssignedDiet>(`${this.basePath}/${id}`);
   }
   addAssignedDiet(assignedDiet:any){
-    return this.http.post<AssignedDiet>(this.basePath, assignedDiet);
+    return this.http.post<AssignedDiet>(this.basePath + "/assignedDiets", assignedDiet);
   }
   deleteAssignedDiet(id:any){
       return this.http.delete<AssignedDiet>(`${this.basePath}/${id}`);

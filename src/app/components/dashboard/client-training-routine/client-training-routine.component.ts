@@ -72,7 +72,6 @@ export class ClientTrainingRoutineComponent implements OnInit {
   }
 
   exportExcel(){
-    debugger
     this.assignedRoutineService.exportAssignedRoutineByClientId(this.id)
     .subscribe(
       (data: any) => {

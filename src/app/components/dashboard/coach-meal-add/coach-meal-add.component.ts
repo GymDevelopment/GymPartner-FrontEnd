@@ -54,7 +54,7 @@ export class CoachMealAddComponent implements OnInit {
 
   saveMeal(): void {
     const meal: any = {
-      id:     this.myForm.value.id,
+      id:     0,
       name:       this.myForm.value.name,
       meal:       this.myForm.value.meal,
       indication: this.myForm.value.indication,
@@ -64,6 +64,7 @@ export class CoachMealAddComponent implements OnInit {
       picture:    this.selectedFile,
     };
     const uploadImageData = new FormData();
+    uploadImageData.append('picture', meal.picture, meal.picture.name);
     uploadImageData.append('name', meal.name.toString());
     uploadImageData.append('meal', meal.meal.toString());
     uploadImageData.append('indication', meal.indication.toString());
@@ -71,9 +72,8 @@ export class CoachMealAddComponent implements OnInit {
     uploadImageData.append('hour', meal.hour.toString());
     uploadImageData.append('mealType', meal.mealType.toString());
     uploadImageData.append('coachId', this.idCoach.toString());
-    uploadImageData.append('picture', meal.picture, meal.picture.name);
 
-
+    console.log(uploadImageData);
     
     this.mealService.addDiet(meal).subscribe({
       next: (data: any) => {
